@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/struct.proto";
 
 service GameLogic {
-  rpc ShowGamesTotalByWheresWithOrdersLimit(GameShowGamesTotalByWheresWithOrdersLimitInput) returns (GameShowGamesTotalByWheresWithOrdersLimitOutput);
+  rpc ShowGamesTotalByFiltersWithSortersPagination(GameShowGamesTotalByFiltersWithSortersPaginationInput) returns (GameShowGamesTotalByFiltersWithSortersPaginationOutput);
 
 }
 
@@ -33,34 +33,34 @@ message Game {
   GameType game_type = 9;
 }
 
-message GameWhere {
+message GameFilter {
   string field = 1;
   string operator = 2;
   google.protobuf.Value value = 3;
 
 }
 
-message GameOrder {
+message GameSorter {
   string field = 1;
-  string value = 2;
+  string order = 2;
 
 }
 
 
-message GameLimit {
-  uint64 offset = 1;
-  uint64 count = 2;
+message GamePagination {
+  uint64 size = 1;
+  uint64 page = 2;
 }
 
-message GameShowGamesTotalByWheresWithOrdersLimitInput {
-  repeated GameWhere wheres = 1;
-  repeated GameOrder orders = 2;
-  GameLimit limit = 3;
+message GameShowGamesTotalByFiltersWithSortersPaginationInput {
+  repeated GameFilter filters = 1;
+  repeated GameSorter sorters = 2;
+  GamePagination pagination = 3;
 }
 
 
 
-message GameShowGamesTotalByWheresWithOrdersLimitOutput {
+message GameShowGamesTotalByFiltersWithSortersPaginationOutput {
   repeated Game games = 1;
   uint64 total = 2;
 }
