@@ -5,7 +5,7 @@ package pb.resource.model;
 option go_package = "./pb_resource_model";
 
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/struct.proto";
+import "resource/resource.proto";
 
 service GameModel {
   rpc AddOne(GameAddOneInput) returns (GameAddOneOutput);
@@ -17,24 +17,6 @@ service GameModel {
 
 }
 
-
-message GameFilter {
-  string field = 1;
-  string operator = 2;
-  google.protobuf.Value value = 3;
-}
-
-message GameSorter {
-  string field = 1;
-  string order = 2;
-}
-
-
-
-message GamePagination {
-  uint64 size = 1;
-  uint64 page = 2;
-}
 
 message GameType {
   uint32 id = 1;
@@ -115,9 +97,9 @@ message GameRemoveOneByIdOutput{
 }
 
 message GameShowOnesByFiltersWithOrdersPaginationInput{
-  repeated GameFilter filters = 2;
-  repeated GameSorter sorters = 3;
-  GamePagination pagination = 1;
+  repeated pb.resource.Filter filters = 2;
+  repeated pb.resource.Sorter sorters = 3;
+  pb.resource.Pagination pagination = 1;
 }
 
 
@@ -128,7 +110,7 @@ message GameShowOnesByFiltersWithOrdersPaginationOutput{
 
 
 message GameTotalByFiltersInput{
-  repeated GameFilter filters = 1;
+  repeated pb.resource.Filter filters = 1;
 }
 
 
