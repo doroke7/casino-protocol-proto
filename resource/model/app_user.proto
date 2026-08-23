@@ -6,6 +6,9 @@ option go_package = "./pb_resource_model";
 
 service AppUserModel {
   rpc AddAppUser(AppUserAddOneInput) returns (AppUserAddOneOutput);
+  rpc ShowOneByName(AppUserShowOneByNameInput) returns (AppUserShowOneByNameOutput);
+  rpc ShowOneById(AppUserShowOneByIdInput) returns (AppUserShowOneByIdOutput);
+  rpc IncreaseBalance(AppUserIncreaseBalanceInput) returns (AppUserIncreaseBalanceOutput);
 }
 
 message AppUserAddOneInput {
@@ -14,6 +17,37 @@ message AppUserAddOneInput {
 
 message AppUserAddOneOutput {
   string name = 1;
+}
+
+message AppUserShowOneByNameInput {
+  string name = 1;
+}
+
+message AppUserShowOneByNameOutput {
+  uint32 id = 1;
+  string name = 2;
+  string password = 3;
+  uint32 balance = 4;
+}
+
+message AppUserShowOneByIdInput {
+  uint32 id = 1;
+}
+
+message AppUserShowOneByIdOutput {
+  uint32 id = 1;
+  string name = 2;
+  string password = 3;
+  uint32 balance = 4;
+}
+
+message AppUserIncreaseBalanceInput {
+  uint32 id = 1;
+  uint32 amount = 2;
+}
+
+message AppUserIncreaseBalanceOutput {
+  bool status = 1;
 }
 
 
