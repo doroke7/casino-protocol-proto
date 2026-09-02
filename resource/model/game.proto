@@ -18,31 +18,6 @@ service GameModel {
 
 }
 
-
-message GameType {
-  uint32 id = 1;
-  string key = 2;
-  string name = 3;
-  google.protobuf.Timestamp created_at = 4;
-  google.protobuf.Timestamp updated_at = 5;
-  google.protobuf.Timestamp deleted_at = 6;
-  uint32 parent_id = 7;
-  GameType parent = 8;
-  repeated GameType children = 9;
-}
-
-message Game{
-  uint32 id = 1;
-  uint32 game_type_id = 2;
-  string key = 3;
-  string name = 4;
-  string description = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
-  google.protobuf.Timestamp deleted_at = 8;
-  GameType game_type = 9;
-}
-
 message GameAddOneInput{
   optional uint32 game_type_id = 1;
   optional string key = 2;
@@ -74,7 +49,7 @@ message GameShowOneByIdOutput{
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
   google.protobuf.Timestamp deleted_at = 8;
-  GameType game_type = 9;
+  pb.resource.GameType game_type = 9;
 }
 
 message GameShowOneByKeyInput{
@@ -90,7 +65,7 @@ message GameShowOneByKeyOutput{
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
   google.protobuf.Timestamp deleted_at = 8;
-  GameType game_type = 9;
+  pb.resource.GameType game_type = 9;
 }
 
 message GameEditOneByIdInput{
@@ -124,7 +99,7 @@ message GameShowOnesByFiltersWithOrdersPaginationInput{
 
 
 message GameShowOnesByFiltersWithOrdersPaginationOutput{
-  repeated Game games = 1;
+  repeated pb.resource.Game games = 1;
 }
 
 

@@ -5,7 +5,6 @@ package pb.resource.model;
 option go_package = "./pb_resource_model";
 
 import "google/protobuf/timestamp.proto";
-import "resource/model/game.proto";
 import "resource/resource.proto";
 
 service GameTypeModel {
@@ -69,7 +68,7 @@ message GameTypeShowOnesByFiltersWithSortersPaginationInput {
 }
 
 message GameTypeShowOnesByFiltersWithSortersPaginationOutput {
-  repeated GameType game_types = 1;
+  repeated pb.resource.GameType game_types = 1;
 }
 
 message GameTypeTotalByFiltersInput {

@@ -5,7 +5,6 @@ package pb.resource.logic;
 option go_package = "./pb_resource_logic";
 
 import "google/protobuf/timestamp.proto";
-import "resource/logic/game.proto";
 import "resource/resource.proto";
 
 service TableLogic {
@@ -25,7 +24,7 @@ message Table {
   google.protobuf.Timestamp created_at = 10;
   google.protobuf.Timestamp updated_at = 11;
   google.protobuf.Timestamp deleted_at = 12;
-  Game game = 13;
+  pb.resource.Game game = 13;
 }
 
 message TableShowTablesTotalByFiltersWithSortersPaginationInput {

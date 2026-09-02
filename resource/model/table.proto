@@ -5,7 +5,6 @@ package pb.resource.model;
 option go_package = "./pb_resource_model";
 
 import "google/protobuf/timestamp.proto";
-import "resource/model/game.proto";
 import "resource/resource.proto";
 
 service TableModel {
@@ -49,7 +48,7 @@ message TableShowOneByIdOutput {
   google.protobuf.Timestamp created_at = 10;
   google.protobuf.Timestamp updated_at = 11;
   google.protobuf.Timestamp deleted_at = 12;
-  Game game = 13;
+  pb.resource.Game game = 13;
 }
 
 message TableEditOneByIdInput {

@@ -4,36 +4,11 @@ package pb.resource.logic;
 
 option go_package = "./pb_resource_logic";
 
-import "google/protobuf/timestamp.proto";
 import "resource/resource.proto";
 
 service GameLogic {
   rpc ShowGamesTotalByFiltersWithSortersPagination(GameShowGamesTotalByFiltersWithSortersPaginationInput) returns (GameShowGamesTotalByFiltersWithSortersPaginationOutput);
 
-}
-
-message GameType {
-  uint32 id = 1;
-  string key = 2;
-  string name = 3;
-  google.protobuf.Timestamp created_at = 4;
-  google.protobuf.Timestamp updated_at = 5;
-  google.protobuf.Timestamp deleted_at = 6;
-  uint32 parent_id = 7;
-  GameType parent = 8;
-  repeated GameType children = 9;
-}
-
-message Game {
-  uint32 id = 1;
-  uint32 game_type_id = 2;
-  string key = 3;
-  string name = 4;
-  string description = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
-  google.protobuf.Timestamp deleted_at = 8;
-  GameType game_type = 9;
 }
 
 message GameShowGamesTotalByFiltersWithSortersPaginationInput {
@@ -42,10 +17,7 @@ message GameShowGamesTotalByFiltersWithSortersPaginationInput {
   pb.resource.Pagination pagination = 3;
 }
 
-
-
 message GameShowGamesTotalByFiltersWithSortersPaginationOutput {
-  repeated Game games = 1;
+  repeated pb.resource.Game games = 1;
   uint64 total = 2;
 }
-

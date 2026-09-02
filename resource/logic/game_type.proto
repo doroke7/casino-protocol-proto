@@ -4,25 +4,26 @@ package pb.resource.logic;
 
 option go_package = "./pb_resource_logic";
 
-import "google/protobuf/timestamp.proto";
+import "resource/resource.proto";
 
 service GameTypeLogic {
   rpc ShowTree(GameTypeShowTreeInput) returns (GameTypeShowTreeOutput);
-}
-
-// GameTypeNode 是「平的」單筆資料；client 端拿到全部之後自己用 parent_id 組成 tree。
-message GameTypeNode {
-  uint32 id = 1;
-  uint32 parent_id = 2;
-  string key = 3;
-  string name = 4;
-  google.protobuf.Timestamp created_at = 5;
-  google.protobuf.Timestamp updated_at = 6;
-  google.protobuf.Timestamp deleted_at = 7;
+  rpc ShowGameTypesTotalByFiltersWithSortersPagination(GameTypeShowGameTypesTotalByFiltersWithSortersPaginationInput) returns (GameTypeShowGameTypesTotalByFiltersWithSortersPaginationOutput);
 }
 
 message GameTypeShowTreeInput {}
 
 message GameTypeShowTreeOutput {
-  repeated GameTypeNode game_types = 1;
+  repeated pb.resource.GameType game_types = 1;
+}
+
+message GameTypeShowGameTypesTotalByFiltersWithSortersPaginationInput {
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
+}
+
+message GameTypeShowGameTypesTotalByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.GameType game_types = 1;
+  uint64 total = 2;
 }
