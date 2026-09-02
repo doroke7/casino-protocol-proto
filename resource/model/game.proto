@@ -10,6 +10,7 @@ import "resource/resource.proto";
 service GameModel {
   rpc AddOne(GameAddOneInput) returns (GameAddOneOutput);
   rpc ShowOneById(GameShowOneByIdInput) returns (GameShowOneByIdOutput);
+  rpc ShowOneByKey(GameShowOneByKeyInput) returns (GameShowOneByKeyOutput);
   rpc ShowOnesByFiltersWithOrdersPagination(GameShowOnesByFiltersWithOrdersPaginationInput) returns (GameShowOnesByFiltersWithOrdersPaginationOutput);
   rpc EditOneById(GameEditOneByIdInput) returns (GameEditOneByIdOutput);
   rpc RemoveOneById(GameRemoveOneByIdInput) returns (GameRemoveOneByIdOutput);
@@ -25,6 +26,9 @@ message GameType {
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
   google.protobuf.Timestamp deleted_at = 6;
+  uint32 parent_id = 7;
+  GameType parent = 8;
+  repeated GameType children = 9;
 }
 
 message Game{
@@ -62,6 +66,22 @@ message GameShowOneByIdInput{
 }
 
 message GameShowOneByIdOutput{
+  uint32 id = 1;
+  uint32 game_type_id = 2;
+  string key = 3;
+  string name = 4;
+  string description = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+  google.protobuf.Timestamp deleted_at = 8;
+  GameType game_type = 9;
+}
+
+message GameShowOneByKeyInput{
+  string key = 1;
+}
+
+message GameShowOneByKeyOutput{
   uint32 id = 1;
   uint32 game_type_id = 2;
   string key = 3;
