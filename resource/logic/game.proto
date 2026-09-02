@@ -19,6 +19,9 @@ message GameType {
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
   google.protobuf.Timestamp deleted_at = 6;
+  uint32 parent_id = 7;
+  GameType parent = 8;
+  repeated GameType children = 9;
 }
 
 message Game {

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb.resource.event;
+
+option go_package = "./pb_resource_event";
+
+service AdminUserEvent {
+  rpc AddOne(AdminUserEventAddOneInput) returns (AdminUserEventAddOneOutput);
+}
+
+message AdminUserEventAddOneInput {
+  uint32 id = 1;
+  string name = 2;
+  string password = 3;
+}
+
+message AdminUserEventAddOneOutput {}
