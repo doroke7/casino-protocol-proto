@@ -4,17 +4,21 @@ package pb.resource.logic;
 
 option go_package = "./pb_resource_logic";
 
+import "resource/common.proto";
+
 service AppUserModel {
   rpc AddAppUser(AppUserAddAppUserInput) returns (AppUserAddAppUserOutput);
 }
 
+message AppUserVariable {
+  optional string name = 1;
+  optional string password = 2;
+}
+
 message AppUserAddAppUserInput {
-  string name = 1;
+  AppUserVariable variable = 1;
 }
 
 message AppUserAddAppUserOutput {
-  string name = 1;
+  pb.resource.AppUser app_user = 1;
 }
-
-
-

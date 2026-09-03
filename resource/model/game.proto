@@ -4,8 +4,7 @@ package pb.resource.model;
 
 option go_package = "./pb_resource_model";
 
-import "google/protobuf/timestamp.proto";
-import "resource/resource.proto";
+import "resource/common.proto";
 
 service GameModel {
   rpc AddOne(GameAddOneInput) returns (GameAddOneOutput);
@@ -15,100 +14,70 @@ service GameModel {
   rpc EditOneById(GameEditOneByIdInput) returns (GameEditOneByIdOutput);
   rpc RemoveOneById(GameRemoveOneByIdInput) returns (GameRemoveOneByIdOutput);
   rpc TotalByFilters(GameTotalByFiltersInput) returns (GameTotalByFiltersOutput);
-
 }
 
-message GameAddOneInput{
+message GameVariable {
   optional uint32 game_type_id = 1;
   optional string key = 2;
   optional string name = 3;
   optional string description = 4;
 }
 
-message GameAddOneOutput{
-  uint32 id = 1;
-  uint32 game_type_id = 2;
-  string key = 3;
-  string name = 4;
-  string description = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
-  google.protobuf.Timestamp deleted_at = 8;
+message GameAddOneInput {
+  GameVariable variable = 1;
 }
 
-message GameShowOneByIdInput{
+message GameAddOneOutput {
+  pb.resource.Game game = 1;
+}
+
+message GameShowOneByIdInput {
   uint32 id = 1;
 }
 
-message GameShowOneByIdOutput{
-  uint32 id = 1;
-  uint32 game_type_id = 2;
-  string key = 3;
-  string name = 4;
-  string description = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
-  google.protobuf.Timestamp deleted_at = 8;
-  pb.resource.GameType game_type = 9;
+message GameShowOneByIdOutput {
+  pb.resource.Game game = 1;
 }
 
-message GameShowOneByKeyInput{
+message GameShowOneByKeyInput {
   string key = 1;
 }
 
-message GameShowOneByKeyOutput{
-  uint32 id = 1;
-  uint32 game_type_id = 2;
-  string key = 3;
-  string name = 4;
-  string description = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
-  google.protobuf.Timestamp deleted_at = 8;
-  pb.resource.GameType game_type = 9;
+message GameShowOneByKeyOutput {
+  pb.resource.Game game = 1;
 }
 
-message GameEditOneByIdInput{
-  uint32 id = 1;
-  optional uint32 game_type_id = 2;
-  optional string key = 3;
-  optional string name = 4;
-  optional string description = 5;
+message GameEditOneByIdInput {
+  GameVariable variable = 1;
+  uint32 id = 2;
 }
 
-
-message GameEditOneByIdOutput{
+message GameEditOneByIdOutput {
   bool status = 1;
 }
 
-
-
-message GameRemoveOneByIdInput{
+message GameRemoveOneByIdInput {
   uint32 id = 1;
 }
 
-message GameRemoveOneByIdOutput{
+message GameRemoveOneByIdOutput {
   bool status = 1;
 }
 
-message GameShowOnesByFiltersWithOrdersPaginationInput{
+message GameShowOnesByFiltersWithOrdersPaginationInput {
   repeated pb.resource.Filter filters = 2;
   repeated pb.resource.Sorter sorters = 3;
   pb.resource.Pagination pagination = 1;
 }
 
-
-message GameShowOnesByFiltersWithOrdersPaginationOutput{
+message GameShowOnesByFiltersWithOrdersPaginationOutput {
   repeated pb.resource.Game games = 1;
 }
 
-
-
-message GameTotalByFiltersInput{
+message GameTotalByFiltersInput {
   repeated pb.resource.Filter filters = 1;
 }
 
-
-message GameTotalByFiltersOutput{
+message GameTotalByFiltersOutput {
   uint64 total = 1;
 }

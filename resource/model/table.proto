@@ -5,7 +5,7 @@ package pb.resource.model;
 option go_package = "./pb_resource_model";
 
 import "google/protobuf/timestamp.proto";
-import "resource/resource.proto";
+import "resource/common.proto";
 
 service TableModel {
   rpc AddOne(TableAddOneInput) returns (TableAddOneOutput);
@@ -16,7 +16,7 @@ service TableModel {
   rpc TotalByFilters(TableTotalByFiltersInput) returns (TableTotalByFiltersOutput);
 }
 
-message TableAddOneInput {
+message TableVariable {
   optional string no = 1;
   optional uint32 game_id = 2;
   optional string key = 3;
@@ -25,6 +25,10 @@ message TableAddOneInput {
   optional string result = 6;
   google.protobuf.Timestamp started_at = 7;
   google.protobuf.Timestamp ended_at = 8;
+}
+
+message TableAddOneInput {
+  TableVariable variable = 1;
 }
 
 message TableAddOneOutput {
@@ -36,31 +40,12 @@ message TableShowOneByIdInput {
 }
 
 message TableShowOneByIdOutput {
-  uint32 id = 1;
-  string no = 2;
-  uint32 game_id = 3;
-  string key = 4;
-  uint32 state = 5;
-  string description = 6;
-  string result = 7;
-  google.protobuf.Timestamp started_at = 8;
-  google.protobuf.Timestamp ended_at = 9;
-  google.protobuf.Timestamp created_at = 10;
-  google.protobuf.Timestamp updated_at = 11;
-  google.protobuf.Timestamp deleted_at = 12;
-  pb.resource.Game game = 13;
+  pb.resource.Table table = 1;
 }
 
 message TableEditOneByIdInput {
-  uint32 id = 1;
-  optional string no = 2;
-  optional uint32 game_id = 3;
-  optional string key = 4;
-  optional uint32 state = 5;
-  optional string description = 6;
-  optional string result = 7;
-  google.protobuf.Timestamp started_at = 8;
-  google.protobuf.Timestamp ended_at = 9;
+  TableVariable variable = 1;
+  uint32 id = 2;
 }
 
 message TableEditOneByIdOutput {
@@ -82,7 +67,7 @@ message TableShowOnesByFiltersWithSortersPaginationInput {
 }
 
 message TableShowOnesByFiltersWithSortersPaginationOutput {
-  repeated TableShowOneByIdOutput tables = 1;
+  repeated pb.resource.Table tables = 1;
 }
 
 message TableTotalByFiltersInput {

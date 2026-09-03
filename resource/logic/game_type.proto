@@ -4,7 +4,7 @@ package pb.resource.logic;
 
 option go_package = "./pb_resource_logic";
 
-import "resource/resource.proto";
+import "resource/common.proto";
 
 service GameTypeLogic {
   rpc ShowTree(GameTypeShowTreeInput) returns (GameTypeShowTreeOutput);

@@ -4,10 +4,19 @@ package pb.resource.model;
 
 option go_package = "./pb_resource_model";
 
+import "resource/common.proto";
+
 service AdminUserModel {
   rpc ShowOneByName(AdminUserShowOneByNameInput) returns (AdminUserShowOneByNameOutput);
   rpc ShowOneById(AdminUserShowOneByIdInput) returns (AdminUserShowOneByIdOutput);
   rpc AddOne(AdminUserAddOneInput) returns (AdminUserAddOneOutput);
+  rpc EditOneById(AdminUserEditOneByIdInput) returns (AdminUserEditOneByIdOutput);
+  rpc RemoveOneById(AdminUserRemoveOneByIdInput) returns (AdminUserRemoveOneByIdOutput);
+}
+
+message AdminUserVariable {
+  optional string name = 1;
+  optional string password = 2;
 }
 
 message AdminUserShowOneByNameInput {
@@ -15,27 +24,41 @@ message AdminUserShowOneByNameInput {
 }
 
 message AdminUserShowOneByNameOutput {
-  int32 id = 1;
-  string name = 2;
-  string password = 3;
+  pb.resource.AdminUser admin_user = 1;
 }
 
+// 數據模型直接對ID查找
 message AdminUserShowOneByIdInput {
   uint32 id = 1;
 }
 
 message AdminUserShowOneByIdOutput {
-  uint32 id = 1;
-  string name = 2;
-  string password = 3;
+  pb.resource.AdminUser admin_user = 1;
 }
 
 message AdminUserAddOneInput {
-  optional string name = 1;
-  optional string password = 2;
+  AdminUserVariable variable = 1;
 }
 
 message AdminUserAddOneOutput {
+  bool status = 1;
+}
+
+// 數據模型直接對ID查找
+message AdminUserEditOneByIdInput {
+  AdminUserVariable variable = 1;
+  uint32 id = 2;
+}
+
+message AdminUserEditOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminUserRemoveOneByIdInput {
+  uint32 id = 1;
+}
+
+message AdminUserRemoveOneByIdOutput {
   bool status = 1;
 }
 

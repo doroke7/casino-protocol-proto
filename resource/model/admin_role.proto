@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package pb.resource.model;
+
+option go_package = "./pb_resource_model";
+
+import "resource/common.proto";
+
+service AdminRoleModel {
+  rpc AddOne(AdminRoleAddOneInput) returns (AdminRoleAddOneOutput);
+  rpc ShowOneById(AdminRoleShowOneByIdInput) returns (AdminRoleShowOneByIdOutput);
+  rpc EditOneById(AdminRoleEditOneByIdInput) returns (AdminRoleEditOneByIdOutput);
+  rpc RemoveOneById(AdminRoleRemoveOneByIdInput) returns (AdminRoleRemoveOneByIdOutput);
+  rpc ShowOnesByFiltersWithSortersPagination(AdminRoleShowOnesByFiltersWithSortersPaginationInput) returns (AdminRoleShowOnesByFiltersWithSortersPaginationOutput);
+  rpc TotalByFilters(AdminRoleTotalByFiltersInput) returns (AdminRoleTotalByFiltersOutput);
+}
+
+message AdminRoleVariable {
+  optional string key = 1;
+  optional string name = 2;
+}
+
+message AdminRoleAddOneInput {
+  AdminRoleVariable variable = 1;
+}
+
+message AdminRoleAddOneOutput {
+  bool status = 1;
+}
+
+message AdminRoleShowOneByIdInput {
+  uint32 id = 1;
+}
+
+message AdminRoleShowOneByIdOutput {
+  pb.resource.AdminRole admin_role = 1;
+}
+
+message AdminRoleEditOneByIdInput {
+  AdminRoleVariable variable = 1;
+  uint32 id = 2;
+}
+
+message AdminRoleEditOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminRoleRemoveOneByIdInput {
+  uint32 id = 1;
+}
+
+message AdminRoleRemoveOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminRoleShowOnesByFiltersWithSortersPaginationInput {
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
+}
+
+message AdminRoleShowOnesByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminRole admin_roles = 1;
+}
+
+message AdminRoleTotalByFiltersInput {
+  repeated pb.resource.Filter filters = 1;
+}
+
+message AdminRoleTotalByFiltersOutput {
+  uint64 total = 1;
+}

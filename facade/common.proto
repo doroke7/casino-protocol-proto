@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package pb.resource;
+package pb.facade;
 
-option go_package = "example/pb/resource;pb_resource";
+option go_package = "example/pb/facade;pb_facade";
 
-import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
 
 message Filter {
   string field = 1;

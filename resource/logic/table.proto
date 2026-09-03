@@ -4,27 +4,10 @@ package pb.resource.logic;
 
 option go_package = "./pb_resource_logic";
 
-import "google/protobuf/timestamp.proto";
-import "resource/resource.proto";
+import "resource/common.proto";
 
 service TableLogic {
   rpc ShowTablesTotalByFiltersWithSortersPagination(TableShowTablesTotalByFiltersWithSortersPaginationInput) returns (TableShowTablesTotalByFiltersWithSortersPaginationOutput);
-}
-
-message Table {
-  uint32 id = 1;
-  string no = 2;
-  uint32 game_id = 3;
-  string key = 4;
-  uint32 state = 5;
-  string description = 6;
-  string result = 7;
-  google.protobuf.Timestamp started_at = 8;
-  google.protobuf.Timestamp ended_at = 9;
-  google.protobuf.Timestamp created_at = 10;
-  google.protobuf.Timestamp updated_at = 11;
-  google.protobuf.Timestamp deleted_at = 12;
-  pb.resource.Game game = 13;
 }
 
 message TableShowTablesTotalByFiltersWithSortersPaginationInput {
@@ -34,6 +17,6 @@ message TableShowTablesTotalByFiltersWithSortersPaginationInput {
 }
 
 message TableShowTablesTotalByFiltersWithSortersPaginationOutput {
-  repeated Table tables = 1;
+  repeated pb.resource.Table tables = 1;
   uint64 total = 2;
 }

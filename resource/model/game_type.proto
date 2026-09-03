@@ -4,8 +4,7 @@ package pb.resource.model;
 
 option go_package = "./pb_resource_model";
 
-import "google/protobuf/timestamp.proto";
-import "resource/resource.proto";
+import "resource/common.proto";
 
 service GameTypeModel {
   rpc AddOne(GameTypeAddOneInput) returns (GameTypeAddOneOutput);
@@ -16,18 +15,17 @@ service GameTypeModel {
   rpc TotalByFilters(GameTypeTotalByFiltersInput) returns (GameTypeTotalByFiltersOutput);
 }
 
-message GameTypeAddOneInput {
+message GameTypeVariable {
   optional string key = 1;
   optional string name = 2;
 }
 
+message GameTypeAddOneInput {
+  GameTypeVariable variable = 1;
+}
+
 message GameTypeAddOneOutput {
-  uint32 id = 1;
-  string key = 2;
-  string name = 3;
-  google.protobuf.Timestamp created_at = 4;
-  google.protobuf.Timestamp updated_at = 5;
-  google.protobuf.Timestamp deleted_at = 6;
+  pb.resource.GameType game_type = 1;
 }
 
 message GameTypeShowOneByIdInput {
@@ -35,24 +33,19 @@ message GameTypeShowOneByIdInput {
 }
 
 message GameTypeShowOneByIdOutput {
-  uint32 id = 1;
-  string key = 2;
-  string name = 3;
-  google.protobuf.Timestamp created_at = 4;
-  google.protobuf.Timestamp updated_at = 5;
-  google.protobuf.Timestamp deleted_at = 6;
+  pb.resource.GameType game_type = 1;
 }
 
 message GameTypeEditOneByIdInput {
-  uint32 id = 1;
-  optional string key = 2;
-  optional string name = 3;
+  GameTypeVariable variable = 1;
+  uint32 id = 2;
 }
 
 message GameTypeEditOneByIdOutput {
   bool status = 1;
 }
 
+// 數據模型直接對ID查找
 message GameTypeRemoveOneByIdInput {
   uint32 id = 1;
 }
