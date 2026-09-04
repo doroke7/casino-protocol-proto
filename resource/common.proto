@@ -39,6 +39,9 @@ message AdminUser {
   uint32 id = 1;
   string name = 2;
   string password = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+  google.protobuf.Timestamp deleted_at = 6;
 }
 
 message AdminRole {
@@ -48,6 +51,16 @@ message AdminRole {
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
   google.protobuf.Timestamp deleted_at = 6;
+}
+
+message AdminPermission {
+  uint32 id = 1;
+  uint32 type = 2;
+  string key = 3;
+  string name = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  google.protobuf.Timestamp deleted_at = 7;
 }
 
 message AppUser {
@@ -83,4 +96,10 @@ message Table {
   google.protobuf.Timestamp updated_at = 11;
   google.protobuf.Timestamp deleted_at = 12;
   Game game = 13;
+}
+
+message DefaultError {
+  int32 code = 1;
+  int32 status = 2;
+  string message = 3;
 }

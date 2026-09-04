@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package pb.resource.model;
+
+option go_package = "./pb_resource_model";
+
+import "resource/common.proto";
+
+service AdminPermissionModel {
+  rpc AddOne(AdminPermissionAddOneInput) returns (AdminPermissionAddOneOutput);
+  rpc ShowOneById(AdminPermissionShowOneByIdInput) returns (AdminPermissionShowOneByIdOutput);
+  rpc EditOneById(AdminPermissionEditOneByIdInput) returns (AdminPermissionEditOneByIdOutput);
+  rpc RemoveOneById(AdminPermissionRemoveOneByIdInput) returns (AdminPermissionRemoveOneByIdOutput);
+  rpc ShowOnesByFiltersWithSortersPagination(AdminPermissionShowOnesByFiltersWithSortersPaginationInput) returns (AdminPermissionShowOnesByFiltersWithSortersPaginationOutput);
+  rpc TotalByFilters(AdminPermissionTotalByFiltersInput) returns (AdminPermissionTotalByFiltersOutput);
+}
+
+message AdminPermissionVariable {
+  optional uint32 type = 1;
+  optional string key = 2;
+  optional string name = 3;
+}
+
+message AdminPermissionAddOneInput {
+  AdminPermissionVariable variable = 1;
+}
+
+message AdminPermissionAddOneOutput {
+  bool status = 1;
+}
+
+message AdminPermissionShowOneByIdInput {
+  uint32 id = 1;
+}
+
+message AdminPermissionShowOneByIdOutput {
+  pb.resource.AdminPermission admin_permission = 1;
+}
+
+message AdminPermissionEditOneByIdInput {
+  AdminPermissionVariable variable = 1;
+  uint32 id = 2;
+}
+
+message AdminPermissionEditOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminPermissionRemoveOneByIdInput {
+  uint32 id = 1;
+}
+
+message AdminPermissionRemoveOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminPermissionShowOnesByFiltersWithSortersPaginationInput {
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
+}
+
+message AdminPermissionShowOnesByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminPermission admin_permissions = 1;
+}
+
+message AdminPermissionTotalByFiltersInput {
+  repeated pb.resource.Filter filters = 1;
+}
+
+message AdminPermissionTotalByFiltersOutput {
+  uint64 total = 1;
+}

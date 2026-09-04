@@ -12,6 +12,8 @@ service AdminUserModel {
   rpc AddOne(AdminUserAddOneInput) returns (AdminUserAddOneOutput);
   rpc EditOneById(AdminUserEditOneByIdInput) returns (AdminUserEditOneByIdOutput);
   rpc RemoveOneById(AdminUserRemoveOneByIdInput) returns (AdminUserRemoveOneByIdOutput);
+  rpc ShowOnesByFiltersWithSortersPagination(AdminUserShowOnesByFiltersWithSortersPaginationInput) returns (AdminUserShowOnesByFiltersWithSortersPaginationOutput);
+  rpc TotalByFilters(AdminUserTotalByFiltersInput) returns (AdminUserTotalByFiltersOutput);
 }
 
 message AdminUserVariable {
@@ -60,6 +62,24 @@ message AdminUserRemoveOneByIdInput {
 
 message AdminUserRemoveOneByIdOutput {
   bool status = 1;
+}
+
+message AdminUserShowOnesByFiltersWithSortersPaginationInput {
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
+}
+
+message AdminUserShowOnesByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminUser admin_users = 1;
+}
+
+message AdminUserTotalByFiltersInput {
+  repeated pb.resource.Filter filters = 1;
+}
+
+message AdminUserTotalByFiltersOutput {
+  uint64 total = 1;
 }
 
 
