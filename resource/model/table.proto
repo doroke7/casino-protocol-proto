@@ -18,9 +18,9 @@ service TableModel {
 
 message TableVariable {
   optional string no = 1;
-  optional uint32 game_id = 2;
+  optional uint64 game_id = 2;
   optional string key = 3;
-  optional uint32 state = 4;
+  optional uint64 state = 4;
   optional string description = 5;
   optional string result = 6;
   google.protobuf.Timestamp started_at = 7;
@@ -36,7 +36,7 @@ message TableAddOneOutput {
 }
 
 message TableShowOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message TableShowOneByIdOutput {
@@ -45,7 +45,7 @@ message TableShowOneByIdOutput {
 
 message TableEditOneByIdInput {
   TableVariable variable = 1;
-  uint32 id = 2;
+  uint64 id = 2;
 }
 
 message TableEditOneByIdOutput {

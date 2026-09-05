@@ -24,19 +24,19 @@ message Pagination {
 }
 
 message GameType {
-  uint32 id = 1;
+  uint64 id = 1;
   string key = 2;
   string name = 3;
   google.protobuf.Timestamp created_at = 4;
   google.protobuf.Timestamp updated_at = 5;
   google.protobuf.Timestamp deleted_at = 6;
-  uint32 parent_id = 7;
+  uint64 parent_id = 7;
   GameType parent = 8;
   repeated GameType children = 9;
 }
 
 message AdminUser {
-  uint32 id = 1;
+  uint64 id = 1;
   string name = 2;
   string password = 3;
   google.protobuf.Timestamp created_at = 4;
@@ -46,7 +46,7 @@ message AdminUser {
 }
 
 message AdminRole {
-  uint32 id = 1;
+  uint64 id = 1;
   string key = 2;
   string name = 3;
   google.protobuf.Timestamp created_at = 4;
@@ -55,8 +55,8 @@ message AdminRole {
 }
 
 message AdminPermission {
-  uint32 id = 1;
-  uint32 type = 2;
+  uint64 id = 1;
+  uint64 type = 2;
   string key = 3;
   string name = 4;
   google.protobuf.Timestamp created_at = 5;
@@ -65,15 +65,15 @@ message AdminPermission {
 }
 
 message AppUser {
-  uint32 id = 1;
+  uint64 id = 1;
   string name = 2;
   string password = 3;
-  uint32 balance = 4;
+  uint64 balance = 4;
 }
 
 message Game {
-  uint32 id = 1;
-  uint32 game_type_id = 2;
+  uint64 id = 1;
+  uint64 game_type_id = 2;
   string key = 3;
   string name = 4;
   string description = 5;
@@ -84,11 +84,11 @@ message Game {
 }
 
 message Table {
-  uint32 id = 1;
+  uint64 id = 1;
   string no = 2;
-  uint32 game_id = 3;
+  uint64 game_id = 3;
   string key = 4;
-  uint32 state = 5;
+  uint64 state = 5;
   string description = 6;
   string result = 7;
   google.protobuf.Timestamp started_at = 8;

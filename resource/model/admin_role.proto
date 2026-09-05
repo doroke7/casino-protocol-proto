@@ -29,7 +29,7 @@ message AdminRoleAddOneOutput {
 }
 
 message AdminRoleShowOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message AdminRoleShowOneByIdOutput {
@@ -38,7 +38,7 @@ message AdminRoleShowOneByIdOutput {
 
 message AdminRoleEditOneByIdInput {
   AdminRoleVariable variable = 1;
-  uint32 id = 2;
+  uint64 id = 2;
 }
 
 message AdminRoleEditOneByIdOutput {
@@ -46,7 +46,7 @@ message AdminRoleEditOneByIdOutput {
 }
 
 message AdminRoleRemoveOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message AdminRoleRemoveOneByIdOutput {

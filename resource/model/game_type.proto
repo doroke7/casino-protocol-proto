@@ -29,7 +29,7 @@ message GameTypeAddOneOutput {
 }
 
 message GameTypeShowOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message GameTypeShowOneByIdOutput {
@@ -38,7 +38,7 @@ message GameTypeShowOneByIdOutput {
 
 message GameTypeEditOneByIdInput {
   GameTypeVariable variable = 1;
-  uint32 id = 2;
+  uint64 id = 2;
 }
 
 message GameTypeEditOneByIdOutput {
