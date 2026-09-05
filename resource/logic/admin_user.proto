@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package pb.resource.logic;
+
+option go_package = "./pb_resource_logic";
+
+import "resource/common.proto";
+
+service AdminUserLogic {
+  rpc ShowAdminUsersTotalByFiltersWithSortersPagination(AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput) returns (AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput);
+}
+
+message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
+}
+
+message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminUser admin_users = 1;
+  uint64 total = 2;
+}

@@ -97,9 +97,3 @@ message Table {
   google.protobuf.Timestamp deleted_at = 12;
   Game game = 13;
 }
-
-message DefaultError {
-  int32 code = 1;
-  int32 status = 2;
-  string message = 3;
-}
