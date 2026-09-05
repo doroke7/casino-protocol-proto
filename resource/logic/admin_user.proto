@@ -9,6 +9,7 @@ import "resource/common.proto";
 service AdminUserLogic {
   rpc ShowAdminUsersTotalByFiltersWithSortersPagination(AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput) returns (AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput);
   rpc AddAminUser(AdminUserAddAminUserInput) returns (AdminUserAddAminUserOutput);
+  rpc EditAdminUserById(AdminUserEditAdminUserByIdInput) returns (AdminUserEditAdminUserByIdOutput);
 }
 
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
@@ -33,3 +34,10 @@ message AdminUserAddAminUserInput {
 }
 
 message AdminUserAddAminUserOutput {}
+
+message AdminUserEditAdminUserByIdInput {
+  AdminUserVariable variable = 1;
+  uint32 id = 2;
+}
+
+message AdminUserEditAdminUserByIdOutput {}
