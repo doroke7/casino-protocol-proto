@@ -8,6 +8,7 @@ import "resource/common.proto";
 
 service AdminUserLogic {
   rpc ShowAdminUsersTotalByFiltersWithSortersPagination(AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput) returns (AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput);
+  rpc AddAminUser(AdminUserAddAminUserInput) returns (AdminUserAddAminUserOutput);
 }
 
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
@@ -20,3 +21,15 @@ message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput {
   repeated pb.resource.AdminUser admin_users = 1;
   uint64 total = 2;
 }
+
+message AdminUserVariable {
+  optional string name = 1;
+  optional string password = 2;
+  repeated uint32 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
+}
+
+message AdminUserAddAminUserInput {
+  AdminUserVariable variable = 1;
+}
+
+message AdminUserAddAminUserOutput {}
