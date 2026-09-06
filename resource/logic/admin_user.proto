@@ -10,6 +10,14 @@ service AdminUserLogic {
   rpc ShowAdminUsersTotalByFiltersWithSortersPagination(AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput) returns (AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput);
   rpc AddAminUser(AdminUserAddAminUserInput) returns (AdminUserAddAminUserOutput);
   rpc EditAdminUserById(AdminUserEditAdminUserByIdInput) returns (AdminUserEditAdminUserByIdOutput);
+  rpc RemoveAdminUserById(AdminUserRemoveAdminUserByIdInput) returns (AdminUserRemoveAdminUserByIdOutput);
+}
+
+
+message AdminUserVariable {
+  optional string name = 1;
+  optional string password = 2;
+  repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
 }
 
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
@@ -23,11 +31,6 @@ message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput {
   uint64 total = 2;
 }
 
-message AdminUserVariable {
-  optional string name = 1;
-  optional string password = 2;
-  repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
-}
 
 message AdminUserAddAminUserInput {
   AdminUserVariable variable = 1;
@@ -41,3 +44,9 @@ message AdminUserEditAdminUserByIdInput {
 }
 
 message AdminUserEditAdminUserByIdOutput {}
+
+message AdminUserRemoveAdminUserByIdInput {
+  uint64 id = 1;
+}
+
+message AdminUserRemoveAdminUserByIdOutput {}
