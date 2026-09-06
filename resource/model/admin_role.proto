@@ -11,6 +11,7 @@ service AdminRoleModel {
   rpc ShowOneById(AdminRoleShowOneByIdInput) returns (AdminRoleShowOneByIdOutput);
   rpc EditOneById(AdminRoleEditOneByIdInput) returns (AdminRoleEditOneByIdOutput);
   rpc RemoveOneById(AdminRoleRemoveOneByIdInput) returns (AdminRoleRemoveOneByIdOutput);
+  rpc ShowOnes(AdminRoleShowOnesInput) returns (AdminRoleShowOnesOutput);
   rpc ShowOnesByFiltersWithSortersPagination(AdminRoleShowOnesByFiltersWithSortersPaginationInput) returns (AdminRoleShowOnesByFiltersWithSortersPaginationOutput);
   rpc TotalByFilters(AdminRoleTotalByFiltersInput) returns (AdminRoleTotalByFiltersOutput);
 }
@@ -51,6 +52,12 @@ message AdminRoleRemoveOneByIdInput {
 
 message AdminRoleRemoveOneByIdOutput {
   bool status = 1;
+}
+
+message AdminRoleShowOnesInput {}
+
+message AdminRoleShowOnesOutput {
+  repeated pb.resource.AdminRole admin_roles = 1;
 }
 
 message AdminRoleShowOnesByFiltersWithSortersPaginationInput {

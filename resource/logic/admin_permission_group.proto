@@ -9,6 +9,7 @@ import "resource/common.proto";
 service AdminPermissionGroupLogic {
   rpc ShowTree(AdminPermissionGroupShowTreeInput) returns (AdminPermissionGroupShowTreeOutput);
   rpc ShowAdminPermissionGroupById(AdminPermissionGroupShowAdminPermissionGroupByIdInput) returns (AdminPermissionGroupShowAdminPermissionGroupByIdOutput);
+  rpc ShowAdminPermissionGroups(AdminPermissionGroupShowAdminPermissionGroupsInput) returns (AdminPermissionGroupShowAdminPermissionGroupsOutput);
   rpc ShowAdminPermissionGroupsTotalByFiltersWithSortersPagination(AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationInput) returns (AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationOutput);
 }
 
@@ -24,6 +25,12 @@ message AdminPermissionGroupShowAdminPermissionGroupByIdInput {
 
 message AdminPermissionGroupShowAdminPermissionGroupByIdOutput {
   pb.resource.AdminPermissionGroup admin_permission_group = 1;
+}
+
+message AdminPermissionGroupShowAdminPermissionGroupsInput {}
+
+message AdminPermissionGroupShowAdminPermissionGroupsOutput {
+  repeated pb.resource.AdminPermissionGroup admin_permission_groups = 1;
 }
 
 message AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationInput {
