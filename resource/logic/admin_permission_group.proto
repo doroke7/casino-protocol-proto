@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package pb.resource.logic;
+
+option go_package = "./pb_resource_logic";
+
+import "resource/common.proto";
+
+service AdminPermissionGroupLogic {
+  rpc ShowTree(AdminPermissionGroupShowTreeInput) returns (AdminPermissionGroupShowTreeOutput);
+  rpc ShowAdminPermissionGroupsTotalByFiltersWithSortersPagination(AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationInput) returns (AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationOutput);
+}
+
+message AdminPermissionGroupShowTreeInput {}
+
+message AdminPermissionGroupShowTreeOutput {
+  repeated pb.resource.AdminPermissionGroup admin_permission_groups = 1;
+}
+
+message AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationInput {
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
+}
+
+message AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminPermissionGroup admin_permission_groups = 1;
+  uint64 total = 2;
+}

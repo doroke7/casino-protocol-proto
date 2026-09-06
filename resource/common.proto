@@ -23,6 +23,18 @@ message Pagination {
   uint64 page = 2;
 }
 
+message AdminPermissionGroup {
+  uint64 id = 1;
+  string key = 2;
+  string name = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+  google.protobuf.Timestamp deleted_at = 6;
+  uint64 parent_id = 7;
+  AdminPermissionGroup parent = 8;
+  repeated AdminPermissionGroup children = 9;
+}
+
 message GameType {
   uint64 id = 1;
   string key = 2;
