@@ -7,7 +7,16 @@ option go_package = "./pb_resource_logic";
 import "resource/common.proto";
 
 service TableLogic {
+  rpc ShowTableById(TableShowTableByIdInput) returns (TableShowTableByIdOutput);
   rpc ShowTablesTotalByFiltersWithSortersPagination(TableShowTablesTotalByFiltersWithSortersPaginationInput) returns (TableShowTablesTotalByFiltersWithSortersPaginationOutput);
+}
+
+message TableShowTableByIdInput {
+  uint64 id = 1;
+}
+
+message TableShowTableByIdOutput {
+  pb.resource.Table table = 1;
 }
 
 message TableShowTablesTotalByFiltersWithSortersPaginationInput {
