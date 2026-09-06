@@ -9,7 +9,6 @@ import "resource/common.proto";
 service GameTypeLogic {
   rpc ShowTree(GameTypeShowTreeInput) returns (GameTypeShowTreeOutput);
   rpc ShowGameTypeById(GameTypeShowGameTypeByIdInput) returns (GameTypeShowGameTypeByIdOutput);
-  rpc ShowGameTypes(GameTypeShowGameTypesInput) returns (GameTypeShowGameTypesOutput);
   rpc ShowGameTypesTotalByFiltersWithSortersPagination(GameTypeShowGameTypesTotalByFiltersWithSortersPaginationInput) returns (GameTypeShowGameTypesTotalByFiltersWithSortersPaginationOutput);
 }
 
@@ -25,12 +24,6 @@ message GameTypeShowGameTypeByIdInput {
 
 message GameTypeShowGameTypeByIdOutput {
   pb.resource.GameType game_type = 1;
-}
-
-message GameTypeShowGameTypesInput {}
-
-message GameTypeShowGameTypesOutput {
-  repeated pb.resource.GameType game_types = 1;
 }
 
 message GameTypeShowGameTypesTotalByFiltersWithSortersPaginationInput {
