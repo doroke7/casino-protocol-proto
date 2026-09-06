@@ -10,7 +10,7 @@ service GameModel {
   rpc AddOne(GameAddOneInput) returns (GameAddOneOutput);
   rpc ShowOneById(GameShowOneByIdInput) returns (GameShowOneByIdOutput);
   rpc ShowOneByKey(GameShowOneByKeyInput) returns (GameShowOneByKeyOutput);
-  rpc ShowOnesByFiltersWithOrdersPagination(GameShowOnesByFiltersWithOrdersPaginationInput) returns (GameShowOnesByFiltersWithOrdersPaginationOutput);
+  rpc ShowOnesByFiltersWithSortersPagination(GameShowOnesByFiltersWithSortersPaginationInput) returns (GameShowOnesByFiltersWithSortersPaginationOutput);
   rpc EditOneById(GameEditOneByIdInput) returns (GameEditOneByIdOutput);
   rpc RemoveOneById(GameRemoveOneByIdInput) returns (GameRemoveOneByIdOutput);
   rpc TotalByFilters(GameTotalByFiltersInput) returns (GameTotalByFiltersOutput);
@@ -64,13 +64,13 @@ message GameRemoveOneByIdOutput {
   bool status = 1;
 }
 
-message GameShowOnesByFiltersWithOrdersPaginationInput {
+message GameShowOnesByFiltersWithSortersPaginationInput {
   repeated pb.resource.Filter filters = 2;
   repeated pb.resource.Sorter sorters = 3;
   pb.resource.Pagination pagination = 1;
 }
 
-message GameShowOnesByFiltersWithOrdersPaginationOutput {
+message GameShowOnesByFiltersWithSortersPaginationOutput {
   repeated pb.resource.Game games = 1;
 }
 
