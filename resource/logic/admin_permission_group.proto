@@ -13,7 +13,9 @@ service AdminPermissionGroupLogic {
   rpc ShowAdminPermissionGroupsTotalByFiltersWithSortersPagination(AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationInput) returns (AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationOutput);
 }
 
-message AdminPermissionGroupShowTreeInput {}
+message AdminPermissionGroupShowTreeInput {
+
+}
 
 message AdminPermissionGroupShowTreeOutput {
   repeated pb.resource.AdminPermissionGroup admin_permission_groups = 1;
@@ -27,7 +29,9 @@ message AdminPermissionGroupShowAdminPermissionGroupByIdOutput {
   pb.resource.AdminPermissionGroup admin_permission_group = 1;
 }
 
-message AdminPermissionGroupShowAdminPermissionGroupsInput {}
+message AdminPermissionGroupShowAdminPermissionGroupsInput {
+  
+}
 
 message AdminPermissionGroupShowAdminPermissionGroupsOutput {
   repeated pb.resource.AdminPermissionGroup admin_permission_groups = 1;

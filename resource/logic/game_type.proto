@@ -27,7 +27,9 @@ message GameTypeShowGameTypeByIdOutput {
   pb.resource.GameType game_type = 1;
 }
 
-message GameTypeShowGameTypesInput {}
+message GameTypeShowGameTypesInput {
+  
+}
 
 message GameTypeShowGameTypesOutput {
   repeated pb.resource.GameType game_types = 1;

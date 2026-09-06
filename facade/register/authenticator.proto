@@ -8,12 +8,17 @@ service AuthenticatorController {
   rpc SignIn(AuthenticatorSignInRequest) returns (AuthenticatorSignInResponse);
 }
 
-message AuthenticatorSignInRequest {
+
+message StaffUserVariable {
   string name = 1;
 }
 
+message AuthenticatorSignInRequest {
+  StaffUserVariable variable = 1;
+}
+
 message AuthenticatorSignInResponse {
-  string name = 1;
+  string authorization = 1;
 }
 
 

@@ -8,10 +8,17 @@ service AdminUserEvent {
   rpc AddOne(AdminUserEventAddOneInput) returns (AdminUserEventAddOneOutput);
 }
 
-message AdminUserEventAddOneInput {
-  uint64 id = 1;
-  string name = 2;
-  string password = 3;
+message AppUserValue {
+  optional uint64 id = 1;
+  optional string name = 2;
+  optional string password = 3;
 }
 
-message AdminUserEventAddOneOutput {}
+message AdminUserEventAddOneInput {
+  AppUserValue value = 1;
+
+}
+
+message AdminUserEventAddOneOutput {
+  
+}

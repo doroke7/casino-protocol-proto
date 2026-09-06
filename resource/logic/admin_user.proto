@@ -16,7 +16,7 @@ service AdminUserLogic {
 }
 
 
-message AdminUserVariable {
+message AdminUserValue {
   optional string name = 1;
   optional string password = 2;
   repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
@@ -44,17 +44,21 @@ message AdminUserShowAdminUserByIdOutput{
 
 
 message AdminUserAddAminUserInput {
-  AdminUserVariable variable = 1;
+  AdminUserValue value = 1;
 }
 
-message AdminUserAddAminUserOutput {}
+message AdminUserAddAminUserOutput {
+
+}
 
 message AdminUserEditAdminUserByIdInput {
-  AdminUserVariable variable = 1;
+  AdminUserValue value = 1;
   uint64 id = 2;
 }
 
-message AdminUserEditAdminUserByIdOutput {}
+message AdminUserEditAdminUserByIdOutput {
+  
+}
 
 message AdminUserRemoveAdminUserByIdInput {
   uint64 id = 1;
