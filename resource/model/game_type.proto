@@ -47,7 +47,7 @@ message GameTypeEditOneByIdOutput {
 
 // 數據模型直接對ID查找
 message GameTypeRemoveOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message GameTypeRemoveOneByIdOutput {

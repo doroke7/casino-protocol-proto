@@ -53,7 +53,7 @@ message TableEditOneByIdOutput {
 }
 
 message TableRemoveOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message TableRemoveOneByIdOutput {

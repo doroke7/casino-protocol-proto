@@ -49,7 +49,7 @@ message AdminUserAddOneOutput {
 // 數據模型直接對ID查找
 message AdminUserEditOneByIdInput {
   AdminUserVariable variable = 1;
-  uint32 id = 2;
+  uint64 id = 2;
 }
 
 message AdminUserEditOneByIdOutput {
@@ -57,7 +57,7 @@ message AdminUserEditOneByIdOutput {
 }
 
 message AdminUserRemoveOneByIdInput {
-  uint32 id = 1;
+  uint64 id = 1;
 }
 
 message AdminUserRemoveOneByIdOutput {
