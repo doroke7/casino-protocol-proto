@@ -16,9 +16,8 @@ service AdminPermissionGroupModel {
 }
 
 message AdminPermissionGroupVariable {
-  uint64 parent_id = 1;
-  string key = 2;
-  string name = 3;
+  optional string key = 1;
+  optional string name = 2;
 }
 
 message AdminPermissionGroupAddOneInput {
