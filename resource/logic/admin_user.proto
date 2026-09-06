@@ -8,6 +8,8 @@ import "resource/common.proto";
 
 service AdminUserLogic {
   rpc ShowAdminUsersTotalByFiltersWithSortersPagination(AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput) returns (AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput);
+  rpc ShowAdminUserById(AdminUserShowAdminUserByIdInput) returns (AdminUserShowAdminUserByIdOutput);
+
   rpc AddAminUser(AdminUserAddAminUserInput) returns (AdminUserAddAminUserOutput);
   rpc EditAdminUserById(AdminUserEditAdminUserByIdInput) returns (AdminUserEditAdminUserByIdOutput);
   rpc RemoveAdminUserById(AdminUserRemoveAdminUserByIdInput) returns (AdminUserRemoveAdminUserByIdOutput);
@@ -27,6 +29,15 @@ message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
 }
 
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminUser admin_users = 1;
+  uint64 total = 2;
+}
+
+message AdminUserShowAdminUserByIdInput {
+  uint64 id = 2;
+}
+
+message AdminUserShowAdminUserByIdOutput{
   repeated pb.resource.AdminUser admin_users = 1;
   uint64 total = 2;
 }
