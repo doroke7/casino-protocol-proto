@@ -8,9 +8,7 @@ import "resource/common.proto";
 
 service GameModel {
   rpc AddOne(GameAddOneInput) returns (GameAddOneOutput);
-  rpc ShowOneById(GameShowOneByIdInput) returns (GameShowOneByIdOutput);
   rpc ShowOneByKey(GameShowOneByKeyInput) returns (GameShowOneByKeyOutput);
-  rpc ShowOnesByFiltersWithSortersPagination(GameShowOnesByFiltersWithSortersPaginationInput) returns (GameShowOnesByFiltersWithSortersPaginationOutput);
   rpc EditOneById(GameEditOneByIdInput) returns (GameEditOneByIdOutput);
   rpc RemoveOneById(GameRemoveOneByIdInput) returns (GameRemoveOneByIdOutput);
   rpc TotalByFilters(GameTotalByFiltersInput) returns (GameTotalByFiltersOutput);
@@ -28,14 +26,6 @@ message GameAddOneInput {
 }
 
 message GameAddOneOutput {
-  pb.resource.Game game = 1;
-}
-
-message GameShowOneByIdInput {
-  uint64 id = 1;
-}
-
-message GameShowOneByIdOutput {
   pb.resource.Game game = 1;
 }
 
@@ -62,16 +52,6 @@ message GameRemoveOneByIdInput {
 
 message GameRemoveOneByIdOutput {
   bool status = 1;
-}
-
-message GameShowOnesByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 2;
-  repeated pb.resource.Sorter sorters = 3;
-  pb.resource.Pagination pagination = 1;
-}
-
-message GameShowOnesByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.Game games = 1;
 }
 
 message GameTotalByFiltersInput {
