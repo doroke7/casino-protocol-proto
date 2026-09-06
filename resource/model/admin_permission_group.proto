@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package pb.resource.model;
+
+option go_package = "./pb_resource_model";
+
+import "resource/common.proto";
+
+service AdminPermissionGroupModel {
+  rpc AddOne(AdminPermissionGroupAddOneInput) returns (AdminPermissionGroupAddOneOutput);
+  rpc ShowOneById(AdminPermissionGroupShowOneByIdInput) returns (AdminPermissionGroupShowOneByIdOutput);
+  rpc ShowOnesByFiltersWithSortersPagination(AdminPermissionGroupShowOnesByFiltersWithSortersPaginationInput) returns (AdminPermissionGroupShowOnesByFiltersWithSortersPaginationOutput);
+  rpc EditOneById(AdminPermissionGroupEditOneByIdInput) returns (AdminPermissionGroupEditOneByIdOutput);
+  rpc RemoveOneById(AdminPermissionGroupRemoveOneByIdInput) returns (AdminPermissionGroupRemoveOneByIdOutput);
+  rpc TotalByFilters(AdminPermissionGroupTotalByFiltersInput) returns (AdminPermissionGroupTotalByFiltersOutput);
+}
+
+message AdminPermissionGroupVariable {
+  uint64 parent_id = 1;
+  string key = 2;
+  string name = 3;
+}
+
+message AdminPermissionGroupAddOneInput {
+  AdminPermissionGroupVariable variable = 1;
+}
+
+message AdminPermissionGroupAddOneOutput {
+  pb.resource.AdminPermissionGroup admin_permission_group = 1;
+}
+
+message AdminPermissionGroupShowOneByIdInput {
+  uint64 id = 1;
+}
+
+message AdminPermissionGroupShowOneByIdOutput {
+  pb.resource.AdminPermissionGroup admin_permission_group = 1;
+}
+
+message AdminPermissionGroupEditOneByIdInput {
+  AdminPermissionGroupVariable variable = 1;
+  uint64 id = 2;
+}
+
+message AdminPermissionGroupEditOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminPermissionGroupRemoveOneByIdInput {
+  uint64 id = 1;
+}
+
+message AdminPermissionGroupRemoveOneByIdOutput {
+  bool status = 1;
+}
+
+message AdminPermissionGroupShowOnesByFiltersWithSortersPaginationInput {
+  pb.resource.Pagination pagination = 1;
+  repeated pb.resource.Filter filters = 2;
+  repeated pb.resource.Sorter sorters = 3;
+}
+
+message AdminPermissionGroupShowOnesByFiltersWithSortersPaginationOutput {
+  repeated pb.resource.AdminPermissionGroup admin_permission_groups = 1;
+}
+
+message AdminPermissionGroupTotalByFiltersInput {
+  repeated pb.resource.Filter filters = 1;
+}
+
+message AdminPermissionGroupTotalByFiltersOutput {
+  uint64 total = 1;
+}
