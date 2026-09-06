@@ -9,10 +9,8 @@ import "resource/common.proto";
 
 service TableModel {
   rpc AddOne(TableAddOneInput) returns (TableAddOneOutput);
-  rpc ShowOneById(TableShowOneByIdInput) returns (TableShowOneByIdOutput);
   rpc EditOneById(TableEditOneByIdInput) returns (TableEditOneByIdOutput);
   rpc RemoveOneById(TableRemoveOneByIdInput) returns (TableRemoveOneByIdOutput);
-  rpc ShowOnesByFiltersWithSortersPagination(TableShowOnesByFiltersWithSortersPaginationInput) returns (TableShowOnesByFiltersWithSortersPaginationOutput);
   rpc TotalByFilters(TableTotalByFiltersInput) returns (TableTotalByFiltersOutput);
 }
 
@@ -35,14 +33,6 @@ message TableAddOneOutput {
   bool status = 1;
 }
 
-message TableShowOneByIdInput {
-  uint64 id = 1;
-}
-
-message TableShowOneByIdOutput {
-  pb.resource.Table table = 1;
-}
-
 message TableEditOneByIdInput {
   TableVariable variable = 1;
   uint64 id = 2;
@@ -58,16 +48,6 @@ message TableRemoveOneByIdInput {
 
 message TableRemoveOneByIdOutput {
   bool status = 1;
-}
-
-message TableShowOnesByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 3;
-  pb.resource.Pagination pagination = 2;
-}
-
-message TableShowOnesByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.Table tables = 1;
 }
 
 message TableTotalByFiltersInput {
