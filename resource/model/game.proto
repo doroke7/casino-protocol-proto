@@ -14,7 +14,7 @@ service GameModel {
   rpc TotalByFilters(GameTotalByFiltersInput) returns (GameTotalByFiltersOutput);
 }
 
-message GameVariable {
+message GameValue {
   optional uint64 game_type_id = 1;
   optional string key = 2;
   optional string name = 3;
@@ -22,7 +22,7 @@ message GameVariable {
 }
 
 message GameAddOneInput {
-  GameVariable variable = 1;
+  GameValue value = 1;
 }
 
 message GameAddOneOutput {
@@ -38,7 +38,7 @@ message GameShowOneByKeyOutput {
 }
 
 message GameEditOneByIdInput {
-  GameVariable variable = 1;
+  GameValue value = 1;
   uint64 id = 2;
 }
 
