@@ -8,7 +8,6 @@ import "resource/common.proto";
 
 service GameTypeModel {
   rpc AddOne(GameTypeAddOneInput) returns (GameTypeAddOneOutput);
-  rpc ShowOneById(GameTypeShowOneByIdInput) returns (GameTypeShowOneByIdOutput);
   rpc ShowOnesByFiltersWithSortersPagination(GameTypeShowOnesByFiltersWithSortersPaginationInput) returns (GameTypeShowOnesByFiltersWithSortersPaginationOutput);
   rpc EditOneById(GameTypeEditOneByIdInput) returns (GameTypeEditOneByIdOutput);
   rpc RemoveOneById(GameTypeRemoveOneByIdInput) returns (GameTypeRemoveOneByIdOutput);
@@ -25,14 +24,6 @@ message GameTypeAddOneInput {
 }
 
 message GameTypeAddOneOutput {
-  pb.resource.GameType game_type = 1;
-}
-
-message GameTypeShowOneByIdInput {
-  uint64 id = 1;
-}
-
-message GameTypeShowOneByIdOutput {
   pb.resource.GameType game_type = 1;
 }
 
