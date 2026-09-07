@@ -7,10 +7,24 @@ option go_package = "./pb_resource_logic";
 import "resource/common.proto";
 
 service AdminPermissionGroupLogic {
+  rpc AddAdminPermissionGroup(AdminPermissionGroupAddAdminPermissionGroupInput) returns (AdminPermissionGroupAddAdminPermissionGroupOutput);
   rpc ShowTree(AdminPermissionGroupShowTreeInput) returns (AdminPermissionGroupShowTreeOutput);
   rpc ShowAdminPermissionGroupById(AdminPermissionGroupShowAdminPermissionGroupByIdInput) returns (AdminPermissionGroupShowAdminPermissionGroupByIdOutput);
   rpc ShowAdminPermissionGroups(AdminPermissionGroupShowAdminPermissionGroupsInput) returns (AdminPermissionGroupShowAdminPermissionGroupsOutput);
   rpc ShowAdminPermissionGroupsTotalByFiltersWithSortersPagination(AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationInput) returns (AdminPermissionGroupShowAdminPermissionGroupsTotalByFiltersWithSortersPaginationOutput);
+}
+
+message AdminPermissionGroupValue {
+  optional string key = 1;
+  optional string name = 2;
+}
+
+message AdminPermissionGroupAddAdminPermissionGroupInput {
+  AdminPermissionGroupValue value = 1;
+}
+
+message AdminPermissionGroupAddAdminPermissionGroupOutput {
+  bool status = 1;
 }
 
 message AdminPermissionGroupShowTreeInput {
