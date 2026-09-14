@@ -13,13 +13,8 @@ service AppUserModel {
   rpc IncreaseBalance(AppUserIncreaseBalanceInput) returns (AppUserIncreaseBalanceOutput);
 }
 
-message AppUserValue {
-  optional string name = 1;
-  optional string password = 2;
-}
-
 message AppUserAddOneInput {
-  AppUserValue value = 1;
+  pb.resource.AppUserValue value = 1;
 }
 
 message AppUserAddOneOutput {

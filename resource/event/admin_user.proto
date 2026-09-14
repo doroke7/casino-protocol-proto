@@ -4,18 +4,14 @@ package pb.resource.event;
 
 option go_package = "./pb_resource_event";
 
+import "resource/common.proto";
+
 service AdminUserEvent {
   rpc AddOne(AdminUserEventAddOneInput) returns (AdminUserEventAddOneOutput);
 }
 
-message AppUserValue {
-  optional uint64 id = 1;
-  optional string name = 2;
-  optional string password = 3;
-}
-
 message AdminUserEventAddOneInput {
-  AppUserValue value = 1;
+  pb.resource.AppUserValue value = 1;
 
 }
 

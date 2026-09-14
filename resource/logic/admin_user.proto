@@ -16,12 +16,6 @@ service AdminUserLogic {
 }
 
 
-message AdminUserValue {
-  optional string name = 1;
-  optional string password = 2;
-  repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
-}
-
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
   repeated pb.resource.Filter filters = 1;
   repeated pb.resource.Sorter sorters = 2;
@@ -44,7 +38,7 @@ message AdminUserShowAdminUserByIdOutput{
 
 
 message AdminUserAddAminUserInput {
-  AdminUserValue value = 1;
+  pb.resource.AdminUserValue value = 1;
 }
 
 message AdminUserAddAminUserOutput {
@@ -52,7 +46,7 @@ message AdminUserAddAminUserOutput {
 }
 
 message AdminUserEditAdminUserByIdInput {
-  AdminUserValue value = 1;
+  pb.resource.AdminUserValue value = 1;
   uint64 id = 2;
 }
 

@@ -2,13 +2,7 @@ syntax = "proto3";
 
 package pb.facade.admin.authentication;
 
-
-import "google/protobuf/descriptor.proto";
-
-extend google.protobuf.FieldOptions {
-  bool encrypted = 50001;
-}
-
+import "facade/common.proto";
 
 option go_package = "./pb_facade_admin_authentication";
 
@@ -16,15 +10,8 @@ service AuthenticatorController {
   rpc SignIn(AuthenticatorSignInRequest) returns (AuthenticatorSignInResponse);
 }
 
-message AdminUserVariable {
-  optional string name = 1;
-  optional string password = 2 [
-    (encrypted) = true
-  ];
-}
-
 message AuthenticatorSignInRequest {
-  AdminUserVariable variable = 1;
+  pb.facade.AdminUserVariable variable = 1;
 }
 
 message AuthenticatorSignInResponse {}

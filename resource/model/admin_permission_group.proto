@@ -15,13 +15,8 @@ service AdminPermissionGroupModel {
   rpc TotalByFilters(AdminPermissionGroupTotalByFiltersInput) returns (AdminPermissionGroupTotalByFiltersOutput);
 }
 
-message AdminPermissionGroupValue {
-  optional string key = 1;
-  optional string name = 2;
-}
-
 message AdminPermissionGroupAddOneInput {
-  AdminPermissionGroupValue value = 1;
+  pb.resource.AdminPermissionGroupValue value = 1;
 }
 
 message AdminPermissionGroupAddOneOutput {
@@ -29,7 +24,7 @@ message AdminPermissionGroupAddOneOutput {
 }
 
 message AdminPermissionGroupEditOneByIdInput {
-  AdminPermissionGroupValue value = 1;
+  pb.resource.AdminPermissionGroupValue value = 1;
   uint64 id = 2;
 }
 

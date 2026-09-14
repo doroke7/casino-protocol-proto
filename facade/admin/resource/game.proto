@@ -14,22 +14,15 @@ service GameController {
   rpc ShowOnes(GameShowOnesRequest) returns (GameShowOnesResponse);
 }
 
-message GameVariable {
-  optional uint64 game_type_id = 1;
-  optional string key = 2;
-  optional string name = 3;
-  optional string description = 4;
-}
-
 message GameAddOneRequest {
-  GameVariable variable = 1;
+  pb.facade.GameVariable variable = 1;
 }
 
 message GameAddOneResponse {}
 
 message GameEditOneRequest {
   repeated pb.facade.Filter filters = 1;
-  GameVariable variable = 2;
+  pb.facade.GameVariable variable = 2;
 }
 
 message GameEditOneResponse {

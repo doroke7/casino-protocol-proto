@@ -4,17 +4,14 @@ package pb.facade.register;
 
 option go_package = "./pb_facade_register";
 
+import "facade/common.proto";
+
 service AuthenticatorController {
   rpc SignIn(AuthenticatorSignInRequest) returns (AuthenticatorSignInResponse);
 }
 
-
-message StaffUserVariable {
-  string name = 1;
-}
-
 message AuthenticatorSignInRequest {
-  StaffUserVariable variable = 1;
+  pb.facade.StaffUserVariable variable = 1;
 }
 
 message AuthenticatorSignInResponse {

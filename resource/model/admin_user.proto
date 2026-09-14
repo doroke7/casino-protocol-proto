@@ -16,11 +16,6 @@ service AdminUserModel {
   rpc TotalByFilters(AdminUserTotalByFiltersInput) returns (AdminUserTotalByFiltersOutput);
 }
 
-message AdminUserValue {
-  optional string name = 1;
-  optional string password = 2;
-}
-
 message AdminUserShowOneByNameInput {
   string name = 1;
 }
@@ -39,7 +34,7 @@ message AdminUserShowOneByIdOutput {
 }
 
 message AdminUserAddOneInput {
-  AdminUserValue value = 1;
+  pb.resource.AdminUserValue value = 1;
 }
 
 message AdminUserAddOneOutput {
@@ -48,7 +43,7 @@ message AdminUserAddOneOutput {
 
 // 數據模型直接對ID查找
 message AdminUserEditOneByIdInput {
-  AdminUserValue value = 1;
+  pb.resource.AdminUserValue value = 1;
   uint64 id = 2;
 }
 

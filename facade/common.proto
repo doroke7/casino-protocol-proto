@@ -6,6 +6,22 @@ option go_package = "example/pb/facade;pb_facade";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/struct.proto";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  bool encrypted = 50001;
+}
+
+message AdminUserVariable {
+  optional string name = 1;
+  optional string password = 2 [
+    (encrypted) = true
+  ];
+}
+
+message StaffUserVariable {
+  string name = 1;
+}
 
 message Filter {
   string field = 1;
@@ -45,4 +61,11 @@ message Game {
   google.protobuf.Timestamp updated_at = 7;
   google.protobuf.Timestamp deleted_at = 8;
   GameType game_type = 9;
+}
+
+message GameVariable {
+  optional uint64 game_type_id = 1;
+  optional string key = 2;
+  optional string name = 3;
+  optional string description = 4;
 }

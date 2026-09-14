@@ -15,14 +15,8 @@ service AdminPermissionModel {
   rpc TotalByFilters(AdminPermissionTotalByFiltersInput) returns (AdminPermissionTotalByFiltersOutput);
 }
 
-message AdminPermissionValue {
-  optional uint64 type = 1;
-  optional string key = 2;
-  optional string name = 3;
-}
-
 message AdminPermissionAddOneInput {
-  AdminPermissionValue value = 1;
+  pb.resource.AdminPermissionValue value = 1;
 }
 
 message AdminPermissionAddOneOutput {
@@ -38,7 +32,7 @@ message AdminPermissionShowOneByIdOutput {
 }
 
 message AdminPermissionEditOneByIdInput {
-  AdminPermissionValue value = 1;
+  pb.resource.AdminPermissionValue value = 1;
   uint64 id = 2;
 }
 

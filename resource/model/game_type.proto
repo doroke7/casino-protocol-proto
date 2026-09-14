@@ -13,13 +13,8 @@ service GameTypeModel {
   rpc TotalByFilters(GameTypeTotalByFiltersInput) returns (GameTypeTotalByFiltersOutput);
 }
 
-message GameTypeValue {
-  optional string key = 1;
-  optional string name = 2;
-}
-
 message GameTypeAddOneInput {
-  GameTypeValue value = 1;
+  pb.resource.GameTypeValue value = 1;
 }
 
 message GameTypeAddOneOutput {
@@ -27,7 +22,7 @@ message GameTypeAddOneOutput {
 }
 
 message GameTypeEditOneByIdInput {
-  GameTypeValue value = 1;
+  pb.resource.GameTypeValue value = 1;
   uint64 id = 2;
 }
 
