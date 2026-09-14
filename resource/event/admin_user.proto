@@ -4,7 +4,7 @@ package pb.resource.event;
 
 option go_package = "./pb_resource_event";
 
-import "resource/common.proto";
+import "common.proto";
 
 service AdminUserEvent {
   rpc AddOne(AdminUserEventAddOneInput) returns (AdminUserEventAddOneOutput);

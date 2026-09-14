@@ -4,7 +4,7 @@ package pb.resource.logic;
 
 option go_package = "./pb_resource_logic";
 
-import "resource/common.proto";
+import "common.proto";
 
 service AppUserModel {
   rpc AddAppUser(AppUserAddAppUserInput) returns (AppUserAddAppUserOutput);

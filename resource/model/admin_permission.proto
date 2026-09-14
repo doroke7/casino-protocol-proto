@@ -4,7 +4,7 @@ package pb.resource.model;
 
 option go_package = "./pb_resource_model";
 
-import "resource/common.proto";
+import "common.proto";
 
 service AdminPermissionModel {
   rpc AddOne(AdminPermissionAddOneInput) returns (AdminPermissionAddOneOutput);

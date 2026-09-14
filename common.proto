@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb.resource;
 
-option go_package = "example/pb/resource;pb_resource";
+option go_package = "example/pb;pb_resource";
 
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
