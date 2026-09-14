@@ -45,9 +45,9 @@ message AdminPermissionGroupShowOnesByParentIdOutput {
 }
 
 message AdminPermissionGroupShowOnesByFiltersWithSortersPaginationInput {
-  pb.resource.Pagination pagination = 1;
-  repeated pb.resource.Filter filters = 2;
-  repeated pb.resource.Sorter sorters = 3;
+  repeated pb.resource.Filter filters = 1;
+  repeated pb.resource.Sorter sorters = 2;
+  pb.resource.Pagination pagination = 3;
 }
 
 message AdminPermissionGroupShowOnesByFiltersWithSortersPaginationOutput {
