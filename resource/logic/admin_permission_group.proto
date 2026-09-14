@@ -8,6 +8,7 @@ import "resource/common.proto";
 
 service AdminPermissionGroupLogic {
   rpc AddAdminPermissionGroup(AdminPermissionGroupAddAdminPermissionGroupInput) returns (AdminPermissionGroupAddAdminPermissionGroupOutput);
+  rpc EditAdminPermissionGroupById(AdminPermissionGroupEditAdminPermissionGroupByIdInput) returns (AdminPermissionGroupEditAdminPermissionGroupByIdOutput);
   rpc ShowTree(AdminPermissionGroupShowTreeInput) returns (AdminPermissionGroupShowTreeOutput);
   rpc ShowAdminPermissionGroupById(AdminPermissionGroupShowAdminPermissionGroupByIdInput) returns (AdminPermissionGroupShowAdminPermissionGroupByIdOutput);
   rpc ShowAdminPermissionGroups(AdminPermissionGroupShowAdminPermissionGroupsInput) returns (AdminPermissionGroupShowAdminPermissionGroupsOutput);
@@ -21,6 +22,13 @@ message AdminPermissionGroupAddAdminPermissionGroupInput {
 message AdminPermissionGroupAddAdminPermissionGroupOutput {
   bool status = 1;
 }
+
+message AdminPermissionGroupEditAdminPermissionGroupByIdInput {
+  pb.resource.AdminPermissionGroupValue value = 1;
+  uint64 id = 2;
+}
+
+message AdminPermissionGroupEditAdminPermissionGroupByIdOutput {}
 
 message AdminPermissionGroupShowTreeInput {
 
