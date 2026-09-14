@@ -54,6 +54,49 @@ message AdminPermissionVariable {
   optional string name = 4;
 }
 
+message AdminUserVariable {
+  optional string name = 1;
+  optional string password = 2 [
+    (encrypted) = true
+  ];
+  repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
+}
+
+message StaffUserVariable {
+  string name = 1;
+}
+
+message AppUserVariable {
+  optional uint64 id = 1;
+  optional string name = 2;
+  optional string password = 3;
+}
+
+message GameVariable {
+  optional uint64 game_type_id = 1;
+  optional string key = 2;
+  optional string name = 3;
+  optional string description = 4;
+}
+
+message GameTypeVariable {
+  optional string key = 1;
+  optional string name = 2;
+}
+
+message TableVariable {
+  optional string no = 1;
+  optional uint64 game_id = 2;
+  optional string key = 3;
+  optional uint64 state = 4;
+  optional string description = 5;
+  optional string result = 6;
+  google.protobuf.Timestamp started_at = 7;
+  google.protobuf.Timestamp ended_at = 8;
+}
+
+
+
 message GameType {
   uint64 id = 1;
   string key = 2;
@@ -76,17 +119,6 @@ message AdminUser {
   repeated AdminRole admin_roles = 7;
 }
 
-message AdminUserVariable {
-  optional string name = 1;
-  optional string password = 2 [
-    (encrypted) = true
-  ];
-  repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
-}
-
-message StaffUserVariable {
-  string name = 1;
-}
 
 message AdminRole {
   uint64 id = 1;
@@ -120,11 +152,7 @@ message AppUser {
   uint64 balance = 4;
 }
 
-message AppUserVariable {
-  optional uint64 id = 1;
-  optional string name = 2;
-  optional string password = 3;
-}
+
 
 message Game {
   uint64 id = 1;
@@ -138,17 +166,7 @@ message Game {
   GameType game_type = 9;
 }
 
-message GameVariable {
-  optional uint64 game_type_id = 1;
-  optional string key = 2;
-  optional string name = 3;
-  optional string description = 4;
-}
 
-message GameTypeVariable {
-  optional string key = 1;
-  optional string name = 2;
-}
 
 message Table {
   uint64 id = 1;
@@ -166,13 +184,3 @@ message Table {
   Game game = 13;
 }
 
-message TableVariable {
-  optional string no = 1;
-  optional uint64 game_id = 2;
-  optional string key = 3;
-  optional uint64 state = 4;
-  optional string description = 5;
-  optional string result = 6;
-  google.protobuf.Timestamp started_at = 7;
-  google.protobuf.Timestamp ended_at = 8;
-}
