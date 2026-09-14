@@ -35,17 +35,13 @@ message GameEditOneByIdInput {
   uint64 id = 2;
 }
 
-message GameEditOneByIdOutput {
-  bool status = 1;
-}
+message GameEditOneByIdOutput {}
 
 message GameRemoveOneByIdInput {
   uint64 id = 1;
 }
 
-message GameRemoveOneByIdOutput {
-  bool status = 1;
-}
+message GameRemoveOneByIdOutput {}
 
 message GameTotalByFiltersInput {
   repeated pb.resource.Filter filters = 1;

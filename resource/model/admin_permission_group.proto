@@ -28,17 +28,13 @@ message AdminPermissionGroupEditOneByIdInput {
   uint64 id = 2;
 }
 
-message AdminPermissionGroupEditOneByIdOutput {
-  bool status = 1;
-}
+message AdminPermissionGroupEditOneByIdOutput {}
 
 message AdminPermissionGroupRemoveOneByIdInput {
   uint64 id = 1;
 }
 
-message AdminPermissionGroupRemoveOneByIdOutput {
-  bool status = 1;
-}
+message AdminPermissionGroupRemoveOneByIdOutput {}
 
 message AdminPermissionGroupShowOnesByParentIdInput {
   uint64 parent_id = 1;

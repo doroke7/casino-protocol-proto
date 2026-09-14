@@ -17,26 +17,20 @@ message TableAddOneInput {
   pb.resource.TableValue value = 1;
 }
 
-message TableAddOneOutput {
-  bool status = 1;
-}
+message TableAddOneOutput {}
 
 message TableEditOneByIdInput {
   pb.resource.TableValue value = 1;
   uint64 id = 2;
 }
 
-message TableEditOneByIdOutput {
-  bool status = 1;
-}
+message TableEditOneByIdOutput {}
 
 message TableRemoveOneByIdInput {
   uint64 id = 1;
 }
 
-message TableRemoveOneByIdOutput {
-  bool status = 1;
-}
+message TableRemoveOneByIdOutput {}
 
 message TableTotalByFiltersInput {
   repeated pb.resource.Filter filters = 1;

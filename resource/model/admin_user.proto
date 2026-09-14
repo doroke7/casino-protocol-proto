@@ -37,9 +37,7 @@ message AdminUserAddOneInput {
   pb.resource.AdminUserValue value = 1;
 }
 
-message AdminUserAddOneOutput {
-  bool status = 1;
-}
+message AdminUserAddOneOutput {}
 
 // 數據模型直接對ID查找
 message AdminUserEditOneByIdInput {
@@ -47,17 +45,13 @@ message AdminUserEditOneByIdInput {
   uint64 id = 2;
 }
 
-message AdminUserEditOneByIdOutput {
-  bool status = 1;
-}
+message AdminUserEditOneByIdOutput {}
 
 message AdminUserRemoveOneByIdInput {
   uint64 id = 1;
 }
 
-message AdminUserRemoveOneByIdOutput {
-  bool status = 1;
-}
+message AdminUserRemoveOneByIdOutput {}
 
 message AdminUserShowOnesByFiltersWithSortersPaginationInput {
   repeated pb.resource.Filter filters = 1;

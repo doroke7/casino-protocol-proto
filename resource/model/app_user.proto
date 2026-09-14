@@ -42,9 +42,7 @@ message AppUserIncreaseBalanceInput {
   uint64 amount = 2;
 }
 
-message AppUserIncreaseBalanceOutput {
-  bool status = 1;
-}
+message AppUserIncreaseBalanceOutput {}
 
 
 

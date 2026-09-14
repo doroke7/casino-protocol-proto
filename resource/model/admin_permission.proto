@@ -36,17 +36,13 @@ message AdminPermissionEditOneByIdInput {
   uint64 id = 2;
 }
 
-message AdminPermissionEditOneByIdOutput {
-  bool status = 1;
-}
+message AdminPermissionEditOneByIdOutput {}
 
 message AdminPermissionRemoveOneByIdInput {
   uint64 id = 1;
 }
 
-message AdminPermissionRemoveOneByIdOutput {
-  bool status = 1;
-}
+message AdminPermissionRemoveOneByIdOutput {}
 
 message AdminPermissionShowOnesByFiltersWithSortersPaginationInput {
   repeated pb.resource.Filter filters = 1;
