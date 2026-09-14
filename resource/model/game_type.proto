@@ -14,15 +14,15 @@ service GameTypeModel {
 }
 
 message GameTypeAddOneInput {
-  pb.resource.GameTypeVariable variable = 1;
+  pb.GameTypeVariable variable = 1;
 }
 
 message GameTypeAddOneOutput {
-  pb.resource.GameType game_type = 1;
+  pb.GameType game_type = 1;
 }
 
 message GameTypeEditOneByIdInput {
-  pb.resource.GameTypeVariable variable = 1;
+  pb.GameTypeVariable variable = 1;
   uint64 id = 2;
 }
 
@@ -36,7 +36,7 @@ message GameTypeRemoveOneByIdInput {
 message GameTypeRemoveOneByIdOutput {}
 
 message GameTypeTotalByFiltersInput {
-  repeated pb.resource.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message GameTypeTotalByFiltersOutput {

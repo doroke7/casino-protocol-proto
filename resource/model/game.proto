@@ -15,11 +15,11 @@ service GameModel {
 }
 
 message GameAddOneInput {
-  pb.resource.GameVariable variable = 1;
+  pb.GameVariable variable = 1;
 }
 
 message GameAddOneOutput {
-  pb.resource.Game game = 1;
+  pb.Game game = 1;
 }
 
 message GameShowOneByKeyInput {
@@ -27,11 +27,11 @@ message GameShowOneByKeyInput {
 }
 
 message GameShowOneByKeyOutput {
-  pb.resource.Game game = 1;
+  pb.Game game = 1;
 }
 
 message GameEditOneByIdInput {
-  pb.resource.GameVariable variable = 1;
+  pb.GameVariable variable = 1;
   uint64 id = 2;
 }
 
@@ -44,7 +44,7 @@ message GameRemoveOneByIdInput {
 message GameRemoveOneByIdOutput {}
 
 message GameTotalByFiltersInput {
-  repeated pb.resource.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message GameTotalByFiltersOutput {

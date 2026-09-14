@@ -11,7 +11,7 @@ service AdminUserEvent {
 }
 
 message AdminUserEventAddOneInput {
-  pb.resource.AppUserVariable variable = 1;
+  pb.AppUserVariable variable = 1;
 
 }
 

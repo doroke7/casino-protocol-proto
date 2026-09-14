@@ -16,7 +16,7 @@ service GameTypeLogic {
 message GameTypeShowTreeInput {}
 
 message GameTypeShowTreeOutput {
-  repeated pb.resource.GameType game_types = 1;
+  repeated pb.GameType game_types = 1;
 }
 
 message GameTypeShowGameTypeByIdInput {
@@ -24,7 +24,7 @@ message GameTypeShowGameTypeByIdInput {
 }
 
 message GameTypeShowGameTypeByIdOutput {
-  pb.resource.GameType game_type = 1;
+  pb.GameType game_type = 1;
 }
 
 message GameTypeShowGameTypesInput {
@@ -32,16 +32,16 @@ message GameTypeShowGameTypesInput {
 }
 
 message GameTypeShowGameTypesOutput {
-  repeated pb.resource.GameType game_types = 1;
+  repeated pb.GameType game_types = 1;
 }
 
 message GameTypeShowGameTypesTotalByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 2;
-  pb.resource.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message GameTypeShowGameTypesTotalByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.GameType game_types = 1;
+  repeated pb.GameType game_types = 1;
   uint64 total = 2;
 }

@@ -17,13 +17,13 @@ service AdminUserLogic {
 
 
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 2;
-  pb.resource.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message AdminUserShowAdminUsersTotalByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.AdminUser admin_users = 1;
+  repeated pb.AdminUser admin_users = 1;
   uint64 total = 2;
 }
 
@@ -32,13 +32,13 @@ message AdminUserShowAdminUserByIdInput {
 }
 
 message AdminUserShowAdminUserByIdOutput{
-  repeated pb.resource.AdminUser admin_users = 1;
+  repeated pb.AdminUser admin_users = 1;
   uint64 total = 2;
 }
 
 
 message AdminUserAddAminUserInput {
-  pb.resource.AdminUserVariable variable = 1;
+  pb.AdminUserVariable variable = 1;
 }
 
 message AdminUserAddAminUserOutput {
@@ -46,7 +46,7 @@ message AdminUserAddAminUserOutput {
 }
 
 message AdminUserEditAdminUserByIdInput {
-  pb.resource.AdminUserVariable variable = 1;
+  pb.AdminUserVariable variable = 1;
   uint64 id = 2;
 }
 

@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package pb.resource;
+package pb;
 
-option go_package = "example/pb;pb_resource";
+option go_package = "example/pb";
 
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";

@@ -14,7 +14,7 @@ service AppUserModel {
 }
 
 message AppUserAddOneInput {
-  pb.resource.AppUserVariable variable = 1;
+  pb.AppUserVariable variable = 1;
 }
 
 message AppUserAddOneOutput {
@@ -26,7 +26,7 @@ message AppUserShowOneByNameInput {
 }
 
 message AppUserShowOneByNameOutput {
-  pb.resource.AppUser app_user = 1;
+  pb.AppUser app_user = 1;
 }
 
 message AppUserShowOneByIdInput {
@@ -34,7 +34,7 @@ message AppUserShowOneByIdInput {
 }
 
 message AppUserShowOneByIdOutput {
-  pb.resource.AppUser app_user = 1;
+  pb.AppUser app_user = 1;
 }
 
 message AppUserIncreaseBalanceInput {

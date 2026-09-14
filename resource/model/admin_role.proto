@@ -17,7 +17,7 @@ service AdminRoleModel {
 }
 
 message AdminRoleAddOneInput {
-  pb.resource.AdminRoleVariable variable = 1;
+  pb.AdminRoleVariable variable = 1;
 }
 
 message AdminRoleAddOneOutput {}
@@ -27,11 +27,11 @@ message AdminRoleShowOneByIdInput {
 }
 
 message AdminRoleShowOneByIdOutput {
-  pb.resource.AdminRole admin_role = 1;
+  pb.AdminRole admin_role = 1;
 }
 
 message AdminRoleEditOneByIdInput {
-  pb.resource.AdminRoleVariable variable = 1;
+  pb.AdminRoleVariable variable = 1;
   uint64 id = 2;
 }
 
@@ -46,21 +46,21 @@ message AdminRoleRemoveOneByIdOutput {}
 message AdminRoleShowOnesInput {}
 
 message AdminRoleShowOnesOutput {
-  repeated pb.resource.AdminRole admin_roles = 1;
+  repeated pb.AdminRole admin_roles = 1;
 }
 
 message AdminRoleShowOnesByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 2;
-  pb.resource.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message AdminRoleShowOnesByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.AdminRole admin_roles = 1;
+  repeated pb.AdminRole admin_roles = 1;
 }
 
 message AdminRoleTotalByFiltersInput {
-  repeated pb.resource.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message AdminRoleTotalByFiltersOutput {

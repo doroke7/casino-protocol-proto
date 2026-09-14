@@ -16,7 +16,7 @@ service AdminPermissionModel {
 }
 
 message AdminPermissionAddOneInput {
-  pb.resource.AdminPermissionVariable variable = 1;
+  pb.AdminPermissionVariable variable = 1;
 }
 
 message AdminPermissionAddOneOutput {
@@ -28,11 +28,11 @@ message AdminPermissionShowOneByIdInput {
 }
 
 message AdminPermissionShowOneByIdOutput {
-  pb.resource.AdminPermission admin_permission = 1;
+  pb.AdminPermission admin_permission = 1;
 }
 
 message AdminPermissionEditOneByIdInput {
-  pb.resource.AdminPermissionVariable variable = 1;
+  pb.AdminPermissionVariable variable = 1;
   uint64 id = 2;
 }
 
@@ -45,17 +45,17 @@ message AdminPermissionRemoveOneByIdInput {
 message AdminPermissionRemoveOneByIdOutput {}
 
 message AdminPermissionShowOnesByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 2;
-  pb.resource.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message AdminPermissionShowOnesByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.AdminPermission admin_permissions = 1;
+  repeated pb.AdminPermission admin_permissions = 1;
 }
 
 message AdminPermissionTotalByFiltersInput {
-  repeated pb.resource.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message AdminPermissionTotalByFiltersOutput {

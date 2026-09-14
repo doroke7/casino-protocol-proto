@@ -14,13 +14,13 @@ service TableModel {
 }
 
 message TableAddOneInput {
-  pb.resource.TableVariable variable = 1;
+  pb.TableVariable variable = 1;
 }
 
 message TableAddOneOutput {}
 
 message TableEditOneByIdInput {
-  pb.resource.TableVariable variable = 1;
+  pb.TableVariable variable = 1;
   uint64 id = 2;
 }
 
@@ -33,7 +33,7 @@ message TableRemoveOneByIdInput {
 message TableRemoveOneByIdOutput {}
 
 message TableTotalByFiltersInput {
-  repeated pb.resource.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message TableTotalByFiltersOutput {

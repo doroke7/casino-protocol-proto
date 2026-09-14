@@ -21,7 +21,7 @@ message AdminUserShowOneByNameInput {
 }
 
 message AdminUserShowOneByNameOutput {
-  pb.resource.AdminUser admin_user = 1;
+  pb.AdminUser admin_user = 1;
 }
 
 // 數據模型直接對ID查找
@@ -30,18 +30,18 @@ message AdminUserShowOneByIdInput {
 }
 
 message AdminUserShowOneByIdOutput {
-  pb.resource.AdminUser admin_user = 1;
+  pb.AdminUser admin_user = 1;
 }
 
 message AdminUserAddOneInput {
-  pb.resource.AdminUserVariable variable = 1;
+  pb.AdminUserVariable variable = 1;
 }
 
 message AdminUserAddOneOutput {}
 
 // 數據模型直接對ID查找
 message AdminUserEditOneByIdInput {
-  pb.resource.AdminUserVariable variable = 1;
+  pb.AdminUserVariable variable = 1;
   uint64 id = 2;
 }
 
@@ -54,17 +54,17 @@ message AdminUserRemoveOneByIdInput {
 message AdminUserRemoveOneByIdOutput {}
 
 message AdminUserShowOnesByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 2;
-  pb.resource.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message AdminUserShowOnesByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.AdminUser admin_users = 1;
+  repeated pb.AdminUser admin_users = 1;
 }
 
 message AdminUserTotalByFiltersInput {
-  repeated pb.resource.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message AdminUserTotalByFiltersOutput {

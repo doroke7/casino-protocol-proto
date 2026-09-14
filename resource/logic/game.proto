@@ -12,12 +12,12 @@ service GameLogic {
 }
 
 message GameShowGamesTotalByFiltersWithSortersPaginationInput {
-  repeated pb.resource.Filter filters = 1;
-  repeated pb.resource.Sorter sorters = 2;
-  pb.resource.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message GameShowGamesTotalByFiltersWithSortersPaginationOutput {
-  repeated pb.resource.Game games = 1;
+  repeated pb.Game games = 1;
   uint64 total = 2;
 }
