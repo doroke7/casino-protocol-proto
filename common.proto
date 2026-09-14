@@ -45,6 +45,7 @@ message AdminPermissionGroupVariable {
   optional string key = 1;
   optional string name = 2;
   repeated AdminPermissionVariable admin_permissions = 3;
+  optional uint64 parent_id = 4;
 }
 
 message AdminPermissionVariable {
