@@ -33,6 +33,7 @@ message AdminPermissionGroup {
   uint64 parent_id = 7;
   AdminPermissionGroup parent = 8;
   repeated AdminPermissionGroup children = 9;
+  repeated AdminPermission admin_permissions = 10;
 }
 
 message GameType {
