@@ -6,6 +6,11 @@ option go_package = "example/pb";
 
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  bool encrypted = 50001;
+}
 
 message Filter {
   string field = 1;
@@ -73,8 +78,14 @@ message AdminUser {
 
 message AdminUserVariable {
   optional string name = 1;
-  optional string password = 2;
+  optional string password = 2 [
+    (encrypted) = true
+  ];
   repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
+}
+
+message StaffUserVariable {
+  string name = 1;
 }
 
 message AdminRole {

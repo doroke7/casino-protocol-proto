@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pb.facade.admin.authentication;
 
-import "facade/common.proto";
+import "common.proto";
 
 option go_package = "./pb_facade_admin_authentication";
 
@@ -11,7 +11,7 @@ service AuthenticatorController {
 }
 
 message AuthenticatorSignInRequest {
-  pb.facade.AdminUserVariable variable = 1;
+  pb.AdminUserVariable variable = 1;
 }
 
 message AuthenticatorSignInResponse {}

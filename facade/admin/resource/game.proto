@@ -4,7 +4,7 @@ package pb.facade.admin.resource;
 
 option go_package = "./pb_facade_admin_resource";
 
-import "facade/common.proto";
+import "common.proto";
 
 service GameController {
   rpc AddOne(GameAddOneRequest) returns (GameAddOneResponse);
@@ -15,14 +15,14 @@ service GameController {
 }
 
 message GameAddOneRequest {
-  pb.facade.GameVariable variable = 1;
+  pb.GameVariable variable = 1;
 }
 
 message GameAddOneResponse {}
 
 message GameEditOneRequest {
-  repeated pb.facade.Filter filters = 1;
-  pb.facade.GameVariable variable = 2;
+  repeated pb.Filter filters = 1;
+  pb.GameVariable variable = 2;
 }
 
 message GameEditOneResponse {
@@ -30,26 +30,26 @@ message GameEditOneResponse {
 }
 
 message GameRemoveOneRequest {
-  repeated pb.facade.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message GameRemoveOneResponse {}
 
 message GameShowOneRequest {
-  repeated pb.facade.Filter filters = 1;
+  repeated pb.Filter filters = 1;
 }
 
 message GameShowOneResponse {
-  pb.facade.Game One = 1;
+  pb.Game One = 1;
 }
 
 message GameShowOnesRequest {
-  repeated pb.facade.Filter filters = 1;
-  repeated pb.facade.Sorter sorters = 2;
-  pb.facade.Pagination pagination = 3;
+  repeated pb.Filter filters = 1;
+  repeated pb.Sorter sorters = 2;
+  pb.Pagination pagination = 3;
 }
 
 message GameShowOnesResponse {
-  repeated pb.facade.Game Ones = 1;
+  repeated pb.Game Ones = 1;
   uint64 total = 2;
 }
