@@ -17,7 +17,7 @@ service AdminRoleModel {
 }
 
 message AdminRoleAddOneInput {
-  pb.resource.AdminRoleValue value = 1;
+  pb.resource.AdminRoleVariable variable = 1;
 }
 
 message AdminRoleAddOneOutput {}
@@ -31,7 +31,7 @@ message AdminRoleShowOneByIdOutput {
 }
 
 message AdminRoleEditOneByIdInput {
-  pb.resource.AdminRoleValue value = 1;
+  pb.resource.AdminRoleVariable variable = 1;
   uint64 id = 2;
 }
 

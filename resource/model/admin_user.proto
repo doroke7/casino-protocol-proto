@@ -34,14 +34,14 @@ message AdminUserShowOneByIdOutput {
 }
 
 message AdminUserAddOneInput {
-  pb.resource.AdminUserValue value = 1;
+  pb.resource.AdminUserVariable variable = 1;
 }
 
 message AdminUserAddOneOutput {}
 
 // 數據模型直接對ID查找
 message AdminUserEditOneByIdInput {
-  pb.resource.AdminUserValue value = 1;
+  pb.resource.AdminUserVariable variable = 1;
   uint64 id = 2;
 }
 

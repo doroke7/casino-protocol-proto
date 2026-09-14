@@ -14,7 +14,7 @@ service GameTypeModel {
 }
 
 message GameTypeAddOneInput {
-  pb.resource.GameTypeValue value = 1;
+  pb.resource.GameTypeVariable variable = 1;
 }
 
 message GameTypeAddOneOutput {
@@ -22,7 +22,7 @@ message GameTypeAddOneOutput {
 }
 
 message GameTypeEditOneByIdInput {
-  pb.resource.GameTypeValue value = 1;
+  pb.resource.GameTypeVariable variable = 1;
   uint64 id = 2;
 }
 

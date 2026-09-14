@@ -14,13 +14,13 @@ service TableModel {
 }
 
 message TableAddOneInput {
-  pb.resource.TableValue value = 1;
+  pb.resource.TableVariable variable = 1;
 }
 
 message TableAddOneOutput {}
 
 message TableEditOneByIdInput {
-  pb.resource.TableValue value = 1;
+  pb.resource.TableVariable variable = 1;
   uint64 id = 2;
 }
 

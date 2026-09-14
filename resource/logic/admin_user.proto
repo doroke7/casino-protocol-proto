@@ -38,7 +38,7 @@ message AdminUserShowAdminUserByIdOutput{
 
 
 message AdminUserAddAminUserInput {
-  pb.resource.AdminUserValue value = 1;
+  pb.resource.AdminUserVariable variable = 1;
 }
 
 message AdminUserAddAminUserOutput {
@@ -46,7 +46,7 @@ message AdminUserAddAminUserOutput {
 }
 
 message AdminUserEditAdminUserByIdInput {
-  pb.resource.AdminUserValue value = 1;
+  pb.resource.AdminUserVariable variable = 1;
   uint64 id = 2;
 }
 

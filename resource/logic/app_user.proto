@@ -11,7 +11,7 @@ service AppUserModel {
 }
 
 message AppUserAddAppUserInput {
-  pb.resource.AppUserValue value = 1;
+  pb.resource.AppUserVariable variable = 1;
 }
 
 message AppUserAddAppUserOutput {

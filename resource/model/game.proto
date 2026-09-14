@@ -15,7 +15,7 @@ service GameModel {
 }
 
 message GameAddOneInput {
-  pb.resource.GameValue value = 1;
+  pb.resource.GameVariable variable = 1;
 }
 
 message GameAddOneOutput {
@@ -31,7 +31,7 @@ message GameShowOneByKeyOutput {
 }
 
 message GameEditOneByIdInput {
-  pb.resource.GameValue value = 1;
+  pb.resource.GameVariable variable = 1;
   uint64 id = 2;
 }
 

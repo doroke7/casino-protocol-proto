@@ -16,7 +16,7 @@ service AdminPermissionModel {
 }
 
 message AdminPermissionAddOneInput {
-  pb.resource.AdminPermissionValue value = 1;
+  pb.resource.AdminPermissionVariable variable = 1;
 }
 
 message AdminPermissionAddOneOutput {
@@ -32,7 +32,7 @@ message AdminPermissionShowOneByIdOutput {
 }
 
 message AdminPermissionEditOneByIdInput {
-  pb.resource.AdminPermissionValue value = 1;
+  pb.resource.AdminPermissionVariable variable = 1;
   uint64 id = 2;
 }
 

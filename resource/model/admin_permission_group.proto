@@ -16,7 +16,7 @@ service AdminPermissionGroupModel {
 }
 
 message AdminPermissionGroupAddOneInput {
-  pb.resource.AdminPermissionGroupValue value = 1;
+  pb.resource.AdminPermissionGroupVariable variable = 1;
 }
 
 message AdminPermissionGroupAddOneOutput {
@@ -24,7 +24,7 @@ message AdminPermissionGroupAddOneOutput {
 }
 
 message AdminPermissionGroupEditOneByIdInput {
-  pb.resource.AdminPermissionGroupValue value = 1;
+  pb.resource.AdminPermissionGroupVariable variable = 1;
   uint64 id = 2;
 }
 

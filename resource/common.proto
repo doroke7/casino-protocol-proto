@@ -36,13 +36,13 @@ message AdminPermissionGroup {
   repeated AdminPermission admin_permissions = 10;
 }
 
-message AdminPermissionGroupValue {
+message AdminPermissionGroupVariable {
   optional string key = 1;
   optional string name = 2;
-  repeated AdminPermissionValue admin_permissions = 3;
+  repeated AdminPermissionVariable admin_permissions = 3;
 }
 
-message AdminPermissionValue {
+message AdminPermissionVariable {
   optional uint64 id = 1;
   optional uint64 type = 2;
   optional string key = 3;
@@ -71,7 +71,7 @@ message AdminUser {
   repeated AdminRole admin_roles = 7;
 }
 
-message AdminUserValue {
+message AdminUserVariable {
   optional string name = 1;
   optional string password = 2;
   repeated uint64 admin_role_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
@@ -86,7 +86,7 @@ message AdminRole {
   google.protobuf.Timestamp deleted_at = 6;
 }
 
-message AdminRoleValue {
+message AdminRoleVariable {
   optional string key = 1;
   optional string name = 2;
 }
@@ -109,7 +109,7 @@ message AppUser {
   uint64 balance = 4;
 }
 
-message AppUserValue {
+message AppUserVariable {
   optional uint64 id = 1;
   optional string name = 2;
   optional string password = 3;
@@ -127,14 +127,14 @@ message Game {
   GameType game_type = 9;
 }
 
-message GameValue {
+message GameVariable {
   optional uint64 game_type_id = 1;
   optional string key = 2;
   optional string name = 3;
   optional string description = 4;
 }
 
-message GameTypeValue {
+message GameTypeVariable {
   optional string key = 1;
   optional string name = 2;
 }
@@ -155,7 +155,7 @@ message Table {
   Game game = 13;
 }
 
-message TableValue {
+message TableVariable {
   optional string no = 1;
   optional uint64 game_id = 2;
   optional string key = 3;
