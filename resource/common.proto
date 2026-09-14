@@ -99,6 +99,7 @@ message AdminPermission {
   google.protobuf.Timestamp created_at = 5;
   google.protobuf.Timestamp updated_at = 6;
   google.protobuf.Timestamp deleted_at = 7;
+  uint64 admin_permission_group_id = 8;
 }
 
 message AppUser {
