@@ -133,6 +133,7 @@ message AdminRole {
 message AdminRoleVariable {
   optional string key = 1;
   optional string name = 2;
+  repeated uint64 admin_permission_ids = 3; // repeated 本身語意就是可以是空的，不用也不能標。
 }
 
 message AdminPermission {

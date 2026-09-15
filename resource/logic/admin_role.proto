@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb.resource.logic;
+
+option go_package = "./pb_resource_logic";
+
+import "common.proto";
+
+service AdminRoleLogic {
+  rpc AddAdminRole(AdminRoleAddAdminRoleInput) returns (AdminRoleAddAdminRoleOutput);
+}
+
+message AdminRoleAddAdminRoleInput {
+  pb.AdminRoleVariable variable = 1;
+}
+
+message AdminRoleAddAdminRoleOutput {}
