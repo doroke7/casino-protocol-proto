@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package pb.ir.inference;
+
+option go_package = "./pb_ir_inference";
+
+service DiskService {
+  // Recognize finds the disks in a single image.
+  rpc Recognize(DiskRecognizeRequest) returns (DiskRecognizeResponse);
+}
+
+message DiskRecognizeRequest {
+  // Encoded image bytes (JPEG or PNG).
+  bytes image = 1;
+}
+
+message DiskRecognizeResponse {
+  repeated Disk items = 1;
+}
+
+message Disk {
+  // Bounding box in pixels, origin at the top-left corner of the image.
+  int32 x = 1;
+  int32 y = 2;
+  int32 width = 3;
+  int32 height = 4;
+  // Confidence in [0, 1].
+  float confidence = 5;
+}
