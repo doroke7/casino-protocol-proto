@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package pb.ir.inference;
+package pb.ir.table.inference;
 
-option go_package = "./pb_ir_inference";
+option go_package = "./pb_ir_table_inference";
 
 service DieService {
   // Recognize finds the dice in a single image.
