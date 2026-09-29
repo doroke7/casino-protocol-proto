@@ -5,17 +5,43 @@ package pb.ir.table.inference;
 option go_package = "./pb_ir_table_inference";
 
 service PokerService {
-  // Recognize finds the poker cards in a single image.
-  rpc Recognize(PokerRecognizeRequest) returns (PokerRecognizeResponse);
+  /*
+     提供三種 api
+     1. 辨識 撲克牌的 位置跟種類
+     2. 辨識 場景 的 位置跟種類
+     3. 辨識 撲克牌 + 場景  位置跟種類
+  */
+
+  rpc RecognizePoker(PokerRecognizePokerRequest) returns (PokerRecognizePokerResponse);
+  rpc RecognizeScene(PokerRecognizeSceneRequest) returns (PokerRecognizeSceneResponse);
+  rpc RecognizeAll(PokerRecognizeAllRequest) returns (PokerRecognizeAllResponse);
+
+
 }
 
-message PokerRecognizeRequest {
-  // Encoded image bytes (JPEG or PNG).
-  bytes image = 1;
+message PokerRecognizePokerRequest {
+
 }
 
-message PokerRecognizeResponse {
-  repeated Poker items = 1;
+message PokerRecognizeSceneRequest {
+
+}
+
+message PokerRecognizeAllRequest {
+
+}
+
+message PokerRecognizePokerResponse {
+  repeated Poker pokers = 1;
+}
+
+message PokerRecognizeSceneResponse {
+  repeated PokerScene scenes = 1;
+}
+
+message PokerRecognizeAllResponse {
+  repeated PokerScene scenes = 1;
+  repeated Poker pokers = 2;
 }
 
 message Poker {
@@ -23,6 +49,21 @@ message Poker {
   string rank = 1;
   // Card suit, e.g. "spade", "heart", "diamond", "club".
   string suit = 2;
+  // Bounding box in pixels, origin at the top-left corner of the image.
+  int32 x = 3;
+  int32 y = 4;
+  int32 width = 5;
+  int32 height = 6;
+  // Confidence in [0, 1].
+  float confidence = 7;
+}
+
+
+
+message PokerScene {
+  // Card face, e.g. Banker  Player
+  string side = 1;
+
   // Bounding box in pixels, origin at the top-left corner of the image.
   int32 x = 3;
   int32 y = 4;
