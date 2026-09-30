@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package pb.recognition.ir.inference.game;
+
+option go_package = "./pb_recognition_ir_inference_game";
+
+import "recognition/ir.proto";
+
+service BaccaratService {
+  rpc RecognizePoker(BaccaratRecognizePokerRequest) returns (BaccaratRecognizePokerResponse);
+  rpc RecognizeObject(BaccaratRecognizeSceneRequest) returns (stream BaccaratRecognizeSceneResponse);
+  rpc RecognizeAll(BaccaratRecognizeAllRequest) returns (BaccaratRecognizeAllResponse);
+}
+
+message BaccaratRecognizePokerRequest {
+
+}
+
+message BaccaratRecognizePokerResponse {
+  repeated pb.recognition.Poker items = 1;
+}
+
+message BaccaratRecognizeSceneRequest {
+
+}
+
+message BaccaratRecognizeAllRequest {
+
+}
+
+message BaccaratRecognizeSceneResponse {
+  repeated pb.recognition.Object objects = 1;
+}
+
+message BaccaratRecognizeAllResponse {
+  repeated pb.recognition.Object objects = 1;
+  repeated pb.recognition.Poker items = 2;
+}

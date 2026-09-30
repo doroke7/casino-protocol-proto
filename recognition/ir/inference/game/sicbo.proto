@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package pb.recognition.ir.inference.game;
+
+option go_package = "./pb_recognition_ir_inference_game";
+
+import "recognition/ir.proto";
+
+service SicboService {
+  rpc RecognizeDie(SicboRecognizeDieRequest) returns (SicboRecognizeDieResponse);
+  rpc RecognizeObject(SicboRecognizeSceneRequest) returns (stream SicboRecognizeSceneResponse);
+  rpc RecognizeAll(SicboRecognizeAllRequest) returns (SicboRecognizeAllResponse);
+}
+
+message SicboRecognizeDieRequest {
+
+}
+
+message SicboRecognizeDieResponse {
+  repeated pb.recognition.Die items = 1;
+}
+
+message SicboRecognizeSceneRequest {
+
+}
+
+message SicboRecognizeAllRequest {
+
+}
+
+message SicboRecognizeSceneResponse {
+  repeated pb.recognition.Object objects = 1;
+}
+
+message SicboRecognizeAllResponse {
+  repeated pb.recognition.Object objects = 1;
+  repeated pb.recognition.Die items = 2;
+}

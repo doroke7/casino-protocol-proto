@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pb.recognition.ir.inference.equipment;
+
+option go_package = "./pb_recognition_ir_inference_equipment";
+
+import "recognition/ir.proto";
+
+service PokerService {
+  rpc RecognizePoker(RecognizePokerRequest) returns (stream RecognizePokerResponse);
+}
+
+message RecognizePokerRequest {
+
+}
+
+message RecognizePokerResponse {
+  repeated pb.recognition.Poker items = 1;
+}
