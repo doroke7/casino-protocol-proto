@@ -7,20 +7,20 @@ option go_package = "./pb_recognition_ir_inference_game";
 import "recognition/ir.proto";
 
 service SicboService {
-  rpc RecognizeDie(SicboRecognizeDieRequest) returns (SicboRecognizeDieResponse);
-  rpc RecognizeObject(SicboRecognizeSceneRequest) returns (stream SicboRecognizeSceneResponse);
+  rpc RecognizeItems(SicboRecognizeItemsRequest) returns (SicboRecognizeItemsResponse);
+  rpc RecognizeObjects(SicboRecognizeObjectsRequest) returns (stream SicboRecognizeObjectsResponse);
   rpc RecognizeAll(SicboRecognizeAllRequest) returns (SicboRecognizeAllResponse);
 }
 
-message SicboRecognizeDieRequest {
+message SicboRecognizeItemsRequest {
 
 }
 
-message SicboRecognizeDieResponse {
+message SicboRecognizeItemsResponse {
   repeated pb.recognition.Die items = 1;
 }
 
-message SicboRecognizeSceneRequest {
+message SicboRecognizeObjectsRequest {
 
 }
 
@@ -28,7 +28,7 @@ message SicboRecognizeAllRequest {
 
 }
 
-message SicboRecognizeSceneResponse {
+message SicboRecognizeObjectsResponse {
   repeated pb.recognition.Object objects = 1;
 }
 

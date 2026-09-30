@@ -7,20 +7,20 @@ option go_package = "./pb_recognition_ir_inference_game";
 import "recognition/ir.proto";
 
 service BaccaratService {
-  rpc RecognizePoker(BaccaratRecognizePokerRequest) returns (BaccaratRecognizePokerResponse);
-  rpc RecognizeObject(BaccaratRecognizeSceneRequest) returns (stream BaccaratRecognizeSceneResponse);
+  rpc RecognizeItems(BaccaratRecognizeItemsRequest) returns (BaccaratRecognizeItemsResponse);
+  rpc RecognizeObjects(BaccaratRecognizeObjectsRequest) returns (stream BaccaratRecognizeObjectsResponse);
   rpc RecognizeAll(BaccaratRecognizeAllRequest) returns (BaccaratRecognizeAllResponse);
 }
 
-message BaccaratRecognizePokerRequest {
+message BaccaratRecognizeItemsRequest {
 
 }
 
-message BaccaratRecognizePokerResponse {
+message BaccaratRecognizeItemsResponse {
   repeated pb.recognition.Poker items = 1;
 }
 
-message BaccaratRecognizeSceneRequest {
+message BaccaratRecognizeObjectsRequest {
 
 }
 
@@ -28,7 +28,7 @@ message BaccaratRecognizeAllRequest {
 
 }
 
-message BaccaratRecognizeSceneResponse {
+message BaccaratRecognizeObjectsResponse {
   repeated pb.recognition.Object objects = 1;
 }
 

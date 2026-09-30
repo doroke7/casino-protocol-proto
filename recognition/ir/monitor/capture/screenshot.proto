@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb.recognition.ir.monitor.capture;
+
+option go_package = "./pb_recognition_ir_monitor_capture";
+
+service ScreenshotService {
+  rpc Make(ScreenshotMakeRequest) returns (ScreenshotMakeResponse);
+}
+
+message ScreenshotMakeRequest {
+
+}
+
+message ScreenshotMakeResponse {
+
+}
