@@ -7,7 +7,7 @@ option go_package = "./pb_recognition_ir_inference_item";
 import "recognition/ir.proto";
 
 service DiskService {
-  rpc RecognizeItems(DiskRecognizeItemsRequest) returns (DiskRecognizeItemsResponse);
+  rpc RecognizeItems(DiskRecognizeItemsRequest) returns (stream DiskRecognizeItemsResponse);
 }
 
 message DiskRecognizeItemsRequest {

@@ -7,8 +7,8 @@ option go_package = "./pb_recognition_ir_inference_game";
 import "recognition/ir.proto";
 
 service SicboService {
-  rpc RecognizeItems(SicboRecognizeItemsRequest) returns (SicboRecognizeItemsResponse);
-  rpc RecognizeObjects(SicboRecognizeObjectsRequest) returns (stream SicboRecognizeObjectsResponse);
+  rpc RecognizeItems(SicboRecognizeItemsRequest) returns (stream SicboRecognizeItemsResponse);
+  rpc RecognizeObjects(SicboRecognizeObjectsRequest) returns (SicboRecognizeObjectsResponse);
   rpc RecognizeAll(SicboRecognizeAllRequest) returns (SicboRecognizeAllResponse);
 }
 

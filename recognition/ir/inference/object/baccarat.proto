@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package pb.recognition.ir.inference.object;
+
+option go_package = "./pb_recognition_ir_inference_object";
+
+import "recognition/ir.proto";
+
+service BaccaratService {
+  rpc RecognizeObjects(BaccaratRecognizeObjectsRequest) returns (BaccaratRecognizeObjectsResponse);
+}
+
+
+
+message BaccaratRecognizeObjectsRequest {
+
+}
+
+message BaccaratRecognizeObjectsResponse {
+  repeated pb.recognition.Object objects = 1;
+}
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pb.recognition.ir.inference.object;
+
+option go_package = "./pb_recognition_ir_inference_object";
+
+import "recognition/ir.proto";
+
+service SicboService {
+  rpc RecognizeObjects(SicboRecognizeObjectsRequest) returns (SicboRecognizeObjectsResponse);
+}
+
+message SicboRecognizeObjectsRequest {
+
+}
+
+message SicboRecognizeObjectsResponse {
+  repeated pb.recognition.Object objects = 1;
+}

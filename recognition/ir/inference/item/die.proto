@@ -7,7 +7,7 @@ option go_package = "./pb_recognition_ir_inference_item";
 import "recognition/ir.proto";
 
 service DieService {
-  rpc RecognizeItems(DieRecognizeItemsRequest) returns (DieRecognizeItemsResponse);
+  rpc RecognizeItems(DieRecognizeItemsRequest) returns (stream DieRecognizeItemsResponse);
 }
 
 message DieRecognizeItemsRequest {

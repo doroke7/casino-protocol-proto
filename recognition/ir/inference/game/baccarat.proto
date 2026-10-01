@@ -7,8 +7,8 @@ option go_package = "./pb_recognition_ir_inference_game";
 import "recognition/ir.proto";
 
 service BaccaratService {
-  rpc RecognizeItems(BaccaratRecognizeItemsRequest) returns (BaccaratRecognizeItemsResponse);
-  rpc RecognizeObjects(BaccaratRecognizeObjectsRequest) returns (stream BaccaratRecognizeObjectsResponse);
+  rpc RecognizeItems(BaccaratRecognizeItemsRequest) returns (stream BaccaratRecognizeItemsResponse);
+  rpc RecognizeObjects(BaccaratRecognizeObjectsRequest) returns (BaccaratRecognizeObjectsResponse);
   rpc RecognizeAll(BaccaratRecognizeAllRequest) returns (BaccaratRecognizeAllResponse);
 }
 
