@@ -4,6 +4,7 @@ package pb.recognition.ir.inference.game;
 
 option go_package = "./pb_recognition_ir_inference_game";
 
+import "google/protobuf/timestamp.proto";
 import "recognition/ir.proto";
 
 service BaccaratService {
@@ -18,6 +19,7 @@ message BaccaratRecognizeItemsRequest {
 
 message BaccaratRecognizeItemsResponse {
   repeated pb.recognition.Poker items = 1;
+  google.protobuf.Timestamp time = 2;
 }
 
 message BaccaratRecognizeObjectsRequest {
@@ -30,9 +32,11 @@ message BaccaratRecognizeAllRequest {
 
 message BaccaratRecognizeObjectsResponse {
   repeated pb.recognition.Object objects = 1;
+  google.protobuf.Timestamp time = 2;
 }
 
 message BaccaratRecognizeAllResponse {
   repeated pb.recognition.Object objects = 1;
   repeated pb.recognition.Poker items = 2;
+  google.protobuf.Timestamp time = 3;
 }

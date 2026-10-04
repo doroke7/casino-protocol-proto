@@ -4,6 +4,7 @@ package pb.recognition.ir.inference.game;
 
 option go_package = "./pb_recognition_ir_inference_game";
 
+import "google/protobuf/timestamp.proto";
 import "recognition/ir.proto";
 
 service SicboService {
@@ -18,6 +19,7 @@ message SicboRecognizeItemsRequest {
 
 message SicboRecognizeItemsResponse {
   repeated pb.recognition.Die items = 1;
+  google.protobuf.Timestamp time = 2;
 }
 
 message SicboRecognizeObjectsRequest {
@@ -30,9 +32,11 @@ message SicboRecognizeAllRequest {
 
 message SicboRecognizeObjectsResponse {
   repeated pb.recognition.Object objects = 1;
+  google.protobuf.Timestamp time = 2;
 }
 
 message SicboRecognizeAllResponse {
   repeated pb.recognition.Object objects = 1;
   repeated pb.recognition.Die items = 2;
+  google.protobuf.Timestamp time = 3;
 }
